@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{POST_TITLE}} - Your Palette</title>
+    <meta name="description" content="{{META_DESCRIPTION}}">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="{{POST_TITLE}}">
+    <meta property="og:description" content="{{META_DESCRIPTION}}">
+    <meta property="og:image" content="{{OG_IMAGE}}">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="{{POST_URL}}">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{POST_TITLE}}">
+    <meta name="twitter:description" content="{{META_DESCRIPTION}}">
+    <meta name="twitter:image" content="{{OG_IMAGE}}">
+    
+    <!-- Bootstrap 4.6 CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-palette"></i> Your Palette
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#categories">Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#featured">Featured</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="container">
+        <nav aria-label="breadcrumb" class="breadcrumb-custom">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="blog.html">Blog</a></li>
+                <li class="breadcrumb-item active">{{POST_TITLE}}</li>
+            </ol>
+        </nav>
+    </div>
+
+    <!-- Blog Post Content -->
+    <div class="container py-4">
+        <div class="row">
+            <div class="col-12">
+                <!-- Post Header -->
+                <article class="blog-post-page">
+                    <div class="post-header">
+                        <div class="post-meta">
+                            <span class="category-tag {{CATEGORY}}">{{CATEGORY_DISPLAY}}</span>
+                            <span class="read-time"><i class="fas fa-clock"></i> {{READ_TIME}}</span>
+                        </div>
+                        <h1 class="post-title">{{POST_TITLE}}</h1>
+                        <div class="post-author-date">
+                            <div class="d-flex align-items-center justify-content-center">
+                                <i class="fas fa-user-circle fa-2x text-muted mr-2"></i>
+                                <div>
+                                    <div class="author-name">By {{AUTHOR}}</div>
+                                    <div class="post-date">{{POST_DATE}}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="social-share-header">
+                            <span>Share this article:</span>
+                            <div class="social-links">
+                                <a href="#" class="social-link" onclick="shareOnFacebook()"><i class="fab fa-facebook"></i></a>
+                                <a href="#" class="social-link" onclick="shareOnTwitter()"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="social-link" onclick="shareOnInstagram()"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="social-link" onclick="copyLink()"><i class="fas fa-link"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Post Content -->
+                    <div class="post-content">
+                        {{POST_CONTENT}}
+                    </div>
+
+                    <!-- Post Footer -->
+                    <div class="post-footer">
+                        <div class="post-tags">
+                            <div class="mb-3">
+                                <strong>Tags:</strong>
+                                {{TAGS}}
+                            </div>
+                        </div>
+                        
+                        <div class="post-navigation">
+                            <a href="blog.html" class="btn btn-outline-custom">
+                                <i class="fas fa-arrow-left mr-2"></i>Back to Blog
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+        <!-- Related Posts Section -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <div class="related-posts">
+                    <h3 class="section-title">Related Articles</h3>
+                    <div class="row" id="relatedPosts">
+                        {{RELATED_POSTS}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Newsletter Signup -->
+    <section class="newsletter-section py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mx-auto text-center">
+                    <div class="newsletter-content">
+                        <h3>Stay Updated with Beauty Tips</h3>
+                        <p>Get the latest K-beauty trends, tutorials, and exclusive tips delivered to your inbox.</p>
+                        <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
+                            <div class="input-group">
+                                <input type="email" class="form-control" placeholder="Enter your email address" required>
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary-custom" type="submit">Subscribe</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Basket Icon -->
+    <div class="basket-icon" data-toggle="modal" data-target="#basketModal">
+        <i class="fas fa-shopping-basket"></i>
+        <span class="basket-count" id="basketCount">0</span>
+    </div>
+
+    <!-- Basket Modal -->
+    <div class="modal fade" id="basketModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="fas fa-shopping-basket mr-2"></i>Your Basket
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="basketItems">
+                        <div class="text-center py-4">
+                            <i class="fas fa-shopping-basket fa-3x text-muted mb-3"></i>
+                            <p class="text-muted">Your basket is empty</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="w-100">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <strong>Total: $<span id="basketTotal">0.00</span></strong>
+                        </div>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Continue Shopping</button>
+                        <button type="button" class="btn btn-primary-custom">Proceed to Checkout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5><i class="fas fa-palette mr-2"></i>Your Palette</h5>
+                    <p>Premium Korean makeup tools for beauty enthusiasts worldwide.</p>
+                </div>
+                <div class="col-md-6 text-md-right">
+                    <h6>Connect With Us</h6>
+                    <div class="social-icons">
+                        <i class="fab fa-instagram fa-2x mr-3"></i>
+                        <i class="fab fa-facebook fa-2x mr-3"></i>
+                        <i class="fab fa-twitter fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <small>&copy; 2025 Your Palette. All rights reserved.</small>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 4.6 JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Initialize basket from localStorage
+        let basketItems = JSON.parse(localStorage.getItem('basketItems')) || [];
+        let basketCount = basketItems.reduce((sum, item) => sum + item.quantity, 0);
+        let basketTotal = basketItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            updateBasketDisplay();
+        });
+
+        // Social sharing functions
+        function shareOnFacebook() {
+            const url = encodeURIComponent(window.location.href);
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
+        }
+
+        function shareOnTwitter() {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent(document.querySelector('.post-title').textContent);
+            window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank');
+        }
+
+        function shareOnInstagram() {
+            copyLink();
+            alert('Link copied! You can now share it on Instagram.');
+        }
+
+        function copyLink() {
+            navigator.clipboard.writeText(window.location.href).then(function() {
+                const originalIcon = event.target.closest('.social-link').innerHTML;
+                event.target.closest('.social-link').innerHTML = '<i class="fas fa-check"></i>';
+                setTimeout(() => {
+                    event.target.closest('.social-link').innerHTML = originalIcon;
+                }, 2000);
+            });
+        }
+
+        function subscribeNewsletter(event) {
+            event.preventDefault();
+            const email = event.target.querySelector('input[type="email"]').value;
+            alert(`Thank you for subscribing with ${email}! You'll receive our latest beauty tips and trends.`);
+            event.target.reset();
+        }
+
+        // Basket functionality
+        function updateBasketDisplay() {
+            document.getElementById('basketCount').textContent = basketCount;
+            document.getElementById('basketTotal').textContent = basketTotal.toFixed(2);
+            
+            const basketItemsDiv = document.getElementById('basketItems');
+            if (basketItems.length === 0) {
+                basketItemsDiv.innerHTML = `
+                    <div class="text-center py-4">
+                        <i class="fas fa-shopping-basket fa-3x text-muted mb-3"></i>
+                        <p class="text-muted">Your basket is empty</p>
+                    </div>
+                `;
+            } else {
+                let itemsHTML = '';
+                basketItems.forEach((item, index) => {
+                    itemsHTML += `
+                        <div class="d-flex justify-content-between align-items-center py-2 border-bottom">
+                            <div>
+                                <strong>${item.name}</strong><br>
+                                <small class="text-muted">Quantity: ${item.quantity}</small>
+                            </div>
+                            <div>
+                                <span class="price-tag">$${(item.price * item.quantity).toFixed(2)}</span>
+                                <button class="btn btn-sm btn-outline-danger ml-2" onclick="removeFromBasket(${index})">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                });
+                basketItemsDiv.innerHTML = itemsHTML;
+            }
+        }
+
+        function removeFromBasket(index) {
+            basketTotal -= (basketItems[index].price * basketItems[index].quantity);
+            basketCount -= basketItems[index].quantity;
+            basketItems.splice(index, 1);
+            
+            localStorage.setItem('basketItems', JSON.stringify(basketItems));
+            updateBasketDisplay();
+        }
+    </script>
+</body>
+</html>

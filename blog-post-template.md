@@ -222,13 +222,75 @@ Before publishing, ensure your blog post includes:
 
 ## Publishing Instructions
 
-1. **Content Creation**: Write your post using this template
-2. **Image Preparation**: Optimize and upload images to `img/` folder
-3. **Data Integration**: Add post data to the `blogPosts` array in both `blog.html` and `blog-post.html`
-4. **Testing**: Verify the post displays correctly on both pages
-5. **SEO Check**: Ensure meta tags and descriptions are properly set
-6. **Mobile Testing**: Verify responsive design on mobile devices
-7. **Social Sharing**: Test social sharing functionality
-8. **Publication**: Update publication date and set `published: true`
+### Method 1: Using the Blog Post Generator (Recommended)
+
+1. **Run the Generator**: `node create-blog-post.js`
+2. **Follow Prompts**: Fill in title, category, excerpt, etc.
+3. **Edit Content**: Open the generated HTML file and replace the template content
+4. **Add Images**: Upload your featured image to the `img/` folder
+5. **Update Blog Listing**: Add the generated card HTML to `blog.html`
+6. **Test**: Verify everything works correctly
+
+### Method 2: Manual Creation
+
+1. **Copy Template**: Duplicate `blog-post-template.html`
+2. **Rename File**: Use your post slug (e.g., `my-amazing-tutorial.html`)
+3. **Replace Placeholders**: Update all `{{PLACEHOLDER}}` values
+4. **Write Content**: Replace the `{{POST_CONTENT}}` section with your article
+5. **Update Blog Listing**: Add your post card to `blog.html`
+6. **Test**: Verify the post displays correctly
+
+### File Structure
+```
+your-palette/
+├── blog.html                 (main blog listing page)
+├── blog-post-template.html   (template for new posts)
+├── korean-glass-skin.html    (individual blog post)
+├── your-new-post.html        (your new blog post)
+├── create-blog-post.js       (post generator script)
+└── img/
+    ├── your-post-image.jpg
+    └── ...
+```
+
+### Adding to Blog Listing
+
+After creating your individual HTML file, add a card to `blog.html`:
+
+```html
+<div class="col-lg-4 col-md-6 mb-4">
+    <article class="blog-post-card">
+        <div class="blog-post-image" style="background-image: url('img/your-image.jpg');">
+            <div class="post-overlay">
+                <a href="your-post-slug.html" class="btn btn-primary-custom">Read Article</a>
+            </div>
+        </div>
+        <div class="blog-post-content">
+            <div class="post-meta">
+                <span class="category-tag tutorials">Tutorials</span>
+                <span class="post-date">March 20, 2025</span>
+                <span class="read-time"><i class="fas fa-clock"></i> 5 min read</span>
+            </div>
+            <h4 class="post-title">Your Post Title</h4>
+            <p class="post-excerpt">Your engaging excerpt...</p>
+            <div class="post-actions">
+                <a href="your-post-slug.html" class="btn btn-outline-custom btn-sm">Read More</a>
+                <div class="social-share-mini">
+                    <a href="#" class="social-link"><i class="fas fa-share-alt"></i></a>
+                    <a href="#" class="social-link"><i class="fas fa-heart"></i></a>
+                </div>
+            </div>
+        </div>
+    </article>
+</div>
+```
+
+### Benefits of Individual Files
+
+✅ **Better SEO**: Each post has its own URL and meta tags  
+✅ **Easier Management**: Edit posts independently  
+✅ **Cleaner Code**: No complex JavaScript arrays  
+✅ **Better Performance**: Faster loading and caching  
+✅ **Scalable**: Easy to add unlimited posts  
 
 This template ensures consistency across all blog posts while maintaining the high-quality, engaging content that Your Palette readers expect.
