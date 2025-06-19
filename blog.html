@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty Blog - Your Palette</title>
+    
+    <!-- Bootstrap 4.6 CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-palette"></i> Your Palette
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#categories">Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#featured">Featured</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Hero Section -->
+    <div class="blog-hero">
+        <div class="container text-center">
+            <h1 class="display-4">Beauty & K-Beauty Tips</h1>
+            <p class="lead">Discover the latest trends, techniques, and insider secrets from the world of Korean beauty</p>
+        </div>
+    </div>
+
+    <!-- Blog Search and Filter Section -->
+    <div class="container py-4">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="blog-search-section">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="search-container">
+                                <input type="text" class="form-control blog-search" id="blogSearch" placeholder="Search articles...">
+                                <i class="fas fa-search search-icon"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <select class="form-control blog-filter" id="blogFilter">
+                                <option value="all">All Categories</option>
+                                <option value="tutorials">Tutorials</option>
+                                <option value="trends">Trends</option>
+                                <option value="reviews">Product Reviews</option>
+                                <option value="skincare">Skincare</option>
+                                <option value="k-beauty">K-Beauty</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Featured Post Section -->
+    <section class="featured-post-section py-5">
+        <div class="container">
+            <h2 class="section-title">Featured Article</h2>
+            <div class="row">
+                <div class="col-12">
+                    <article class="featured-post-card">
+                        <div class="row no-gutters">
+                            <div class="col-lg-6">
+                                <div class="featured-post-image" style="background-image: url('img/makeup-palette-2.jpg');">
+                                    <div class="featured-badge">Featured</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="featured-post-content">
+                                    <div class="post-meta">
+                                        <span class="category-tag k-beauty">K-Beauty</span>
+                                        <span class="post-date">March 15, 2025</span>
+                                        <span class="read-time"><i class="fas fa-clock"></i> 5 min read</span>
+                                    </div>
+                                    <h3 class="post-title">The Ultimate Guide to Korean Glass Skin: Achieving That Perfect Glow</h3>
+                                    <p class="post-excerpt">Discover the secrets behind the coveted Korean glass skin trend. Learn the essential steps, products, and techniques that Korean beauty experts use to achieve that luminous, poreless complexion.</p>
+                                    <a href="blog-post.html?id=korean-glass-skin" class="btn btn-primary-custom">Read Full Article</a>
+                                    <div class="social-share">
+                                        <span>Share:</span>
+                                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Posts Grid -->
+    <section class="blog-posts-section py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Latest Articles</h2>
+            <div class="row" id="blogPostsGrid">
+                <!-- Blog posts will be dynamically inserted here -->
+            </div>
+            
+            <!-- Load More Button -->
+            <div class="text-center mt-5">
+                <button class="btn btn-outline-custom" id="loadMoreBtn" onclick="loadMorePosts()">
+                    Load More Articles
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Signup -->
+    <section class="newsletter-section py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mx-auto text-center">
+                    <div class="newsletter-content">
+                        <h3>Stay Updated with Beauty Tips</h3>
+                        <p>Get the latest K-beauty trends, tutorials, and exclusive tips delivered to your inbox.</p>
+                        <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
+                            <div class="input-group">
+                                <input type="email" class="form-control" placeholder="Enter your email address" required>
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary-custom" type="submit">Subscribe</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Basket Icon -->
+    <div class="basket-icon" data-toggle="modal" data-target="#basketModal">
+        <i class="fas fa-shopping-basket"></i>
+        <span class="basket-count" id="basketCount">0</span>
+    </div>
+
+    <!-- Basket Modal (same as other pages) -->
+    <div class="modal fade" id="basketModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="fas fa-shopping-basket mr-2"></i>Your Basket
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="basketItems">
+                        <div class="text-center py-4">
+                            <i class="fas fa-shopping-basket fa-3x text-muted mb-3"></i>
+                            <p class="text-muted">Your basket is empty</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="w-100">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <strong>Total: $<span id="basketTotal">0.00</span></strong>
+                        </div>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Continue Shopping</button>
+                        <button type="button" class="btn btn-primary-custom">Proceed to Checkout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5><i class="fas fa-palette mr-2"></i>Your Palette</h5>
+                    <p>Premium Korean makeup tools for beauty enthusiasts worldwide.</p>
+                </div>
+                <div class="col-md-6 text-md-right">
+                    <h6>Connect With Us</h6>
+                    <div class="social-icons">
+                        <i class="fab fa-instagram fa-2x mr-3"></i>
+                        <i class="fab fa-facebook fa-2x mr-3"></i>
+                        <i class="fab fa-twitter fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <small>&copy; 2025 Your Palette. All rights reserved.</small>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 4.6 JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Blog post data
+        const blogPosts = [
+            {
+                id: 'korean-glass-skin',
+                title: 'The Ultimate Guide to Korean Glass Skin: Achieving That Perfect Glow',
+                excerpt: 'Discover the secrets behind the coveted Korean glass skin trend. Learn the essential steps, products, and techniques...',
+                category: 'k-beauty',
+                date: 'March 15, 2025',
+                readTime: '5 min read',
+                image: 'img/makeup-palette-2.jpg',
+                content: `
+                    <div class="blog-post-content">
+                        <img src="img/makeup-palette-2.jpg" class="img-fluid mb-4" alt="Korean Glass Skin">
+                        <h2>What is Glass Skin?</h2>
+                        <p>Glass skin is a Korean beauty trend that refers to skin so smooth, clear, and luminous that it resembles glass. This coveted look emphasizes a healthy, dewy complexion with minimal visible pores and an even skin tone.</p>
+                        
+                        <h3>The Korean Skincare Routine</h3>
+                        <p>Achieving glass skin requires dedication to a comprehensive skincare routine. The famous Korean 10-step skincare routine includes:</p>
+                        <ol>
+                            <li>Oil-based cleanser</li>
+                            <li>Water-based cleanser</li>
+                            <li>Exfoliant</li>
+                            <li>Toner</li>
+                            <li>Essence</li>
+                            <li>Serum</li>
+                            <li>Sheet mask</li>
+                            <li>Eye cream</li>
+                            <li>Moisturizer</li>
+                            <li>Sunscreen (morning) or Night cream (evening)</li>
+                        </ol>
+                        
+                        <h3>Key Ingredients for Glass Skin</h3>
+                        <p>Focus on ingredients that hydrate, brighten, and repair your skin:</p>
+                        <ul>
+                            <li><strong>Hyaluronic Acid:</strong> For intense hydration</li>
+                            <li><strong>Niacinamide:</strong> To minimize pores and control oil</li>
+                            <li><strong>Vitamin C:</strong> For brightening and antioxidant protection</li>
+                            <li><strong>Snail Mucin:</strong> For healing and moisture retention</li>
+                        </ul>
+                        
+                        <h3>Makeup Tips for Glass Skin</h3>
+                        <p>To enhance your glass skin with makeup, use our premium mixing palette to create custom foundation shades that perfectly match your skin tone. Layer lightweight, dewy products for that luminous finish.</p>
+                    </div>
+                `
+            },
+            {
+                id: 'k-beauty-tools',
+                title: 'Essential K-Beauty Tools Every Makeup Lover Needs',
+                excerpt: 'From mixing palettes to precision spatulas, discover the must-have Korean beauty tools that will transform your routine.',
+                category: 'tutorials',
+                date: 'March 12, 2025',
+                readTime: '4 min read',
+                image: 'img/korean-spatula.jpg',
+                content: `
+                    <div class="blog-post-content">
+                        <img src="img/korean-spatula.jpg" class="img-fluid mb-4" alt="K-Beauty Tools">
+                        <h2>The Art of K-Beauty Tools</h2>
+                        <p>Korean beauty culture emphasizes precision and technique, which is why having the right tools is essential. Let's explore the must-have tools that will elevate your makeup game.</p>
+                        
+                        <h3>1. Mixing Palettes</h3>
+                        <p>A stainless steel mixing palette is crucial for creating custom shades and achieving the perfect color match. Korean makeup artists never apply foundation directly from the bottle.</p>
+                        
+                        <h3>2. Beauty Spatulas</h3>
+                        <p>These precision tools ensure hygienic application and help achieve that signature Korean flawless base. Perfect for mixing products and applying skincare treatments.</p>
+                        
+                        <h3>3. Lip Tools</h3>
+                        <p>Precision lip applicators help create those perfect gradient lips that are so popular in K-beauty trends.</p>
+                    </div>
+                `
+            },
+            {
+                id: 'spring-makeup-trends',
+                title: 'Spring 2025 K-Beauty Makeup Trends to Try Now',
+                excerpt: 'From soft coral lips to dewy highlight techniques, explore the hottest Korean makeup trends for spring.',
+                category: 'trends',
+                date: 'March 10, 2025',
+                readTime: '3 min read',
+                image: 'img/lip-kit.jpg',
+                content: `
+                    <div class="blog-post-content">
+                        <img src="img/lip-kit.jpg" class="img-fluid mb-4" alt="Spring Makeup Trends">
+                        <h2>Fresh Spring Looks from Korea</h2>
+                        <p>Spring brings fresh, youthful makeup looks that emphasize natural beauty and a healthy glow.</p>
+                        
+                        <h3>Coral and Peach Tones</h3>
+                        <p>Soft coral and peach shades dominate this season's color palette, perfect for creating that fresh, spring-like appearance.</p>
+                        
+                        <h3>Glossy Lips</h3>
+                        <p>High-shine, glossy lips are making a comeback. Use our precision lip tools to achieve that perfect application.</p>
+                    </div>
+                `
+            },
+            {
+                id: 'skincare-routine',
+                title: 'Building Your Perfect Korean Skincare Routine',
+                excerpt: 'Step-by-step guide to creating a personalized K-beauty skincare routine that works for your skin type.',
+                category: 'skincare',
+                date: 'March 8, 2025',
+                readTime: '6 min read',
+                image: 'img/mini-palette.jpg',
+                content: `
+                    <div class="blog-post-content">
+                        <img src="img/mini-palette.jpg" class="img-fluid mb-4" alt="Skincare Routine">
+                        <h2>Your Journey to Perfect Skin</h2>
+                        <p>Creating the perfect skincare routine is an art form in Korean beauty culture. It's about understanding your skin's needs and addressing them with targeted products.</p>
+                        
+                        <h3>Know Your Skin Type</h3>
+                        <p>Before building your routine, identify whether you have dry, oily, combination, or sensitive skin. This will guide your product choices.</p>
+                    </div>
+                `
+            },
+            {
+                id: 'makeup-palette-review',
+                title: 'In-Depth Review: Professional Makeup Mixing Palettes',
+                excerpt: 'Everything you need to know about choosing the perfect makeup mixing palette for professional-quality results.',
+                category: 'reviews',
+                date: 'March 5, 2025',
+                readTime: '4 min read',
+                image: 'img/makeup-palette-3.jpg',
+                content: `
+                    <div class="blog-post-content">
+                        <img src="img/makeup-palette-3.jpg" class="img-fluid mb-4" alt="Makeup Palette Review">
+                        <h2>Why Every Makeup Lover Needs a Mixing Palette</h2>
+                        <p>A professional mixing palette is more than just a tool—it's the secret to achieving custom shades and professional-quality makeup application.</p>
+                        
+                        <h3>Material Matters</h3>
+                        <p>Stainless steel palettes are the gold standard for professionals. They're easy to clean, don't absorb product, and provide the perfect surface for mixing.</p>
+                    </div>
+                `
+            },
+            {
+                id: 'led-mirror-guide',
+                title: 'How to Choose the Perfect LED Makeup Mirror',
+                excerpt: 'Lighting makes all the difference in makeup application. Learn how to select the ideal LED mirror for your setup.',
+                category: 'tutorials',
+                date: 'March 3, 2025',
+                readTime: '3 min read',
+                image: 'img/led-mirror.jpg',
+                content: `
+                    <div class="blog-post-content">
+                        <img src="img/led-mirror.jpg" class="img-fluid mb-4" alt="LED Mirror Guide">
+                        <h2>The Importance of Good Lighting</h2>
+                        <p>Proper lighting is crucial for flawless makeup application. LED mirrors provide consistent, true-to-life illumination that helps you achieve professional results.</p>
+                        
+                        <h3>Features to Look For</h3>
+                        <p>When choosing an LED mirror, consider brightness levels, color temperature, and portability to find the perfect match for your needs.</p>
+                    </div>
+                `
+            }
+        ];
+
+        let currentPostsDisplayed = 3;
+        let filteredPosts = [...blogPosts.slice(1)]; // Exclude featured post
+
+        // Initialize basket from localStorage
+        let basketItems = JSON.parse(localStorage.getItem('basketItems')) || [];
+        let basketCount = basketItems.reduce((sum, item) => sum + item.quantity, 0);
+        let basketTotal = basketItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            updateBasketDisplay();
+            displayBlogPosts();
+            initializeSearch();
+        });
+
+        function displayBlogPosts() {
+            const grid = document.getElementById('blogPostsGrid');
+            const postsToShow = filteredPosts.slice(0, currentPostsDisplayed);
+            
+            grid.innerHTML = '';
+            
+            postsToShow.forEach(post => {
+                const postCard = createPostCard(post);
+                grid.appendChild(postCard);
+            });
+
+            // Hide load more button if all posts are displayed
+            const loadMoreBtn = document.getElementById('loadMoreBtn');
+            if (currentPostsDisplayed >= filteredPosts.length) {
+                loadMoreBtn.style.display = 'none';
+            } else {
+                loadMoreBtn.style.display = 'block';
+            }
+        }
+
+        function createPostCard(post) {
+            const col = document.createElement('div');
+            col.className = 'col-lg-4 col-md-6 mb-4';
+            
+            col.innerHTML = `
+                <article class="blog-post-card">
+                    <div class="blog-post-image" style="background-image: url('${post.image}');">
+                        <div class="post-overlay">
+                            <a href="blog-post.html?id=${post.id}" class="btn btn-primary-custom">Read Article</a>
+                        </div>
+                    </div>
+                    <div class="blog-post-content">
+                        <div class="post-meta">
+                            <span class="category-tag ${post.category}">${post.category.charAt(0).toUpperCase() + post.category.slice(1).replace('-', ' ')}</span>
+                            <span class="post-date">${post.date}</span>
+                            <span class="read-time"><i class="fas fa-clock"></i> ${post.readTime}</span>
+                        </div>
+                        <h4 class="post-title">${post.title}</h4>
+                        <p class="post-excerpt">${post.excerpt}</p>
+                        <div class="post-actions">
+                            <a href="blog-post.html?id=${post.id}" class="btn btn-outline-custom btn-sm">Read More</a>
+                            <div class="social-share-mini">
+                                <a href="#" class="social-link"><i class="fas fa-share-alt"></i></a>
+                                <a href="#" class="social-link"><i class="fas fa-heart"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            `;
+            
+            return col;
+        }
+
+        function loadMorePosts() {
+            currentPostsDisplayed += 3;
+            displayBlogPosts();
+        }
+
+        function initializeSearch() {
+            const searchInput = document.getElementById('blogSearch');
+            const filterSelect = document.getElementById('blogFilter');
+
+            searchInput.addEventListener('input', filterPosts);
+            filterSelect.addEventListener('change', filterPosts);
+        }
+
+        function filterPosts() {
+            const searchTerm = document.getElementById('blogSearch').value.toLowerCase();
+            const categoryFilter = document.getElementById('blogFilter').value;
+
+            filteredPosts = blogPosts.slice(1).filter(post => {
+                const matchesSearch = post.title.toLowerCase().includes(searchTerm) || 
+                                    post.excerpt.toLowerCase().includes(searchTerm);
+                const matchesCategory = categoryFilter === 'all' || post.category === categoryFilter;
+                
+                return matchesSearch && matchesCategory;
+            });
+
+            currentPostsDisplayed = 3;
+            displayBlogPosts();
+        }
+
+
+        function subscribeNewsletter(event) {
+            event.preventDefault();
+            const email = event.target.querySelector('input[type="email"]').value;
+            
+            // Simulate newsletter subscription
+            alert(`Thank you for subscribing with ${email}! You'll receive our latest beauty tips and trends.`);
+            event.target.reset();
+        }
+
+        // Basket functionality (shared with other pages)
+        function updateBasketDisplay() {
+            document.getElementById('basketCount').textContent = basketCount;
+            document.getElementById('basketTotal').textContent = basketTotal.toFixed(2);
+            
+            const basketItemsDiv = document.getElementById('basketItems');
+            if (basketItems.length === 0) {
+                basketItemsDiv.innerHTML = `
+                    <div class="text-center py-4">
+                        <i class="fas fa-shopping-basket fa-3x text-muted mb-3"></i>
+                        <p class="text-muted">Your basket is empty</p>
+                    </div>
+                `;
+            } else {
+                let itemsHTML = '';
+                basketItems.forEach((item, index) => {
+                    itemsHTML += `
+                        <div class="d-flex justify-content-between align-items-center py-2 border-bottom">
+                            <div>
+                                <strong>${item.name}</strong><br>
+                                <small class="text-muted">Quantity: ${item.quantity}</small>
+                            </div>
+                            <div>
+                                <span class="price-tag">$${(item.price * item.quantity).toFixed(2)}</span>
+                                <button class="btn btn-sm btn-outline-danger ml-2" onclick="removeFromBasket(${index})">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                });
+                basketItemsDiv.innerHTML = itemsHTML;
+            }
+        }
+
+        function removeFromBasket(index) {
+            basketTotal -= (basketItems[index].price * basketItems[index].quantity);
+            basketCount -= basketItems[index].quantity;
+            basketItems.splice(index, 1);
+            
+            localStorage.setItem('basketItems', JSON.stringify(basketItems));
+            updateBasketDisplay();
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

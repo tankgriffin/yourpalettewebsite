@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Makeup Mixing Palette - Your Palette</title>
+    
+    <!-- Bootstrap 4.6 CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-palette"></i> Your Palette
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#categories">Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#featured">Featured</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="container">
+        <nav aria-label="breadcrumb" class="breadcrumb-custom">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">Accessories</a></li>
+                <li class="breadcrumb-item active">Makeup Mixing Palette</li>
+            </ol>
+        </nav>
+    </div>
+
+    <!-- Success Alert (initially hidden) -->
+    <div class="container">
+        <div class="alert alert-success alert-dismissible fade" id="successAlert" role="alert">
+            <i class="fas fa-check-circle mr-2"></i>
+            <strong>Success!</strong> <span id="alertMessage">Product added to your basket.</span>
+            <button type="button" class="close" data-dismiss="alert">
+                <span>&times;</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Product Details -->
+    <div class="container py-4">
+        <div class="row">
+            <!-- Product Images -->
+            <div class="col-lg-6">
+                <div class="product-image-section">
+                    <div class="product-main-image" id="mainImage" style="background-image: url('img/makeup-palette.jpg');">
+                    </div>
+                    <div class="product-thumbnails">
+                        <div class="thumbnail active" style="background-image: url('img/makeup-palette.jpg');" onclick="changeImage('img/makeup-palette.jpg')">
+                    </div>
+                    <div class="thumbnail" style="background-image: url('img/makeup-palette-2.jpg');" onclick="changeImage('img/makeup-palette-2.jpg')">
+                    </div>
+                    <div class="thumbnail" style="background-image: url('img/makeup-palette-3.jpg');" onclick="changeImage('img/makeup-palette-3.jpg')">
+                    </div>
+                    <div class="thumbnail" style="background-image: url('img/makeup-palette-4.jpg');" onclick="changeImage('img/makeup-palette-4.jpg')">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            <!-- Product Information -->
+            <div class="col-lg-6">
+                <div class="product-info">
+                    <div class="product-brand">Beauty of Joseon</div>
+                    <h1 class="product-title">Professional Makeup Mixing Palette</h1>
+                    
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span class="ml-2 text-muted">(127 reviews)</span>
+                    </div>
+
+                    <div class="product-price">$18.99</div>
+                    
+                    <div class="stock-status">
+                        <i class="fas fa-check-circle mr-1"></i>
+                        In Stock (23 available)
+                    </div>
+
+                    <p class="mb-4">
+                        Professional-grade stainless steel mixing palette perfect for creating custom makeup shades. 
+                        Hygienic, easy-to-clean surface ideal for mixing foundations, concealers, and lip colors. 
+                        An essential tool for makeup artists and beauty enthusiasts.
+                    </p>
+
+                    <!-- Quantity Selector -->
+                    <div class="quantity-selector">
+                        <span class="mr-3"><strong>Quantity:</strong></span>
+                        <button class="quantity-btn" onclick="decreaseQuantity()">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                        <input type="number" class="quantity-input" id="quantity" value="1" min="1" max="10">
+                        <button class="quantity-btn" onclick="increaseQuantity()">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <button class="btn btn-primary-custom" onclick="addToBasket()">
+                        <i class="fas fa-shopping-basket mr-2"></i>Add to Basket
+                    </button>
+                    
+                    <button class="btn btn-outline-custom" data-toggle="modal" data-target="#wishlistModal">
+                        <i class="fas fa-heart mr-2"></i>Add to Wishlist
+                    </button>
+
+                    <!-- Product Features -->
+                    <div class="mt-4">
+                        <h5>Key Features:</h5>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check"></i> Premium stainless steel construction</li>
+                            <li><i class="fas fa-check"></i> Easy to clean and sanitize</li>
+                            <li><i class="fas fa-check"></i> Perfect for color mixing</li>
+                            <li><i class="fas fa-check"></i> Professional makeup artist approved</li>
+                            <li><i class="fas fa-check"></i> Compact and portable design</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Specifications -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <div class="product-info">
+                    <h3 class="section-title">Product Specifications</h3>
+                    <table class="table specification-table">
+                        <tbody>
+                            <tr>
+                                <th width="30%">Material</th>
+                                <td>Premium Stainless Steel</td>
+                            </tr>
+                            <tr>
+                                <th>Dimensions</th>
+                                <td>4.5" x 3.2" x 0.1"</td>
+                            </tr>
+                            <tr>
+                                <th>Weight</th>
+                                <td>2.1 oz (60g)</td>
+                            </tr>
+                            <tr>
+                                <th>Brand</th>
+                                <td>Beauty of Joseon</td>
+                            </tr>
+                            <tr>
+                                <th>Country of Origin</th>
+                                <td>South Korea</td>
+                            </tr>
+                            <tr>
+                                <th>Care Instructions</th>
+                                <td>Wash with soap and water, sanitize with alcohol</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Related Products -->
+        <div class="related-products">
+            <h3 class="section-title">You Might Also Like</h3>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card related-product-card">
+                        <div class="related-product-image" style="background-image: url('img/korean-spatula.jpg');">
+                        </div>
+                        <div class="card-body">
+                            <h6 class="card-title">Korean Spatula</h6>
+                            <p class="card-text small">Spatula for even foundation application</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="price-tag">$24.99</span>
+                                <button class="btn btn-sm btn-primary-custom" onclick="addRelatedToBasket('Korean Spatula', 24.99)">Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card related-product-card">
+                        <div class="related-product-image" style="background-image: url('img/mini-palette.jpg');">
+                        </div>
+                        <div class="card-body">
+                            <h6 class="card-title">Mini Palette</h6>
+                            <p class="card-text small">Miniature version of the infamous mixing palette</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="price-tag">$12.50</span>
+                                <button class="btn btn-sm btn-primary-custom" onclick="addRelatedToBasket('Mini Palette', 12.50)">Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card related-product-card">
+                        <div class="related-product-image" style="background-image: url('img/lip-kit.jpg');">
+                        </div>
+                        <div class="card-body">
+                            <h6 class="card-title">Lip Kit</h6>
+                            <p class="card-text small">Lip pick with spatula for easy application</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="price-tag">$15.75</span>
+                                <button class="btn btn-sm btn-primary-custom" onclick="addRelatedToBasket('Lip Kit', 15.75)">Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card related-product-card">
+                        <div class="related-product-image" style="background-image: url('img/led-mirror.jpg');">
+                        </div>
+                        <div class="card-body">
+                            <h6 class="card-title">LED Compact Mirror</h6>
+                            <p class="card-text small">Portable mirror with LED lighting</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="price-tag">$32.00</span>
+                                <button class="btn btn-sm btn-primary-custom" onclick="addRelatedToBasket('LED Compact Mirror', 32.00)">Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Basket Icon -->
+    <div class="basket-icon" data-toggle="modal" data-target="#basketModal">
+        <i class="fas fa-shopping-basket"></i>
+        <span class="basket-count" id="basketCount">0</span>
+    </div>
+
+    <!-- Basket Modal -->
+    <div class="modal fade" id="basketModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="fas fa-shopping-basket mr-2"></i>Your Basket
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="basketItems">
+                        <div class="text-center py-4">
+                            <i class="fas fa-shopping-basket fa-3x text-muted mb-3"></i>
+                            <p class="text-muted">Your basket is empty</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="w-100">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <strong>Total: $<span id="basketTotal">0.00</span></strong>
+                        </div>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Continue Shopping</button>
+                        <button type="button" class="btn btn-primary-custom">Proceed to Checkout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Wishlist Modal -->
+    <div class="modal fade" id="wishlistModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="fas fa-heart mr-2"></i>Add to Wishlist
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Would you like to add this item to your wishlist for future reference?</p>
+                    <div class="d-flex align-items-center">
+                        <i class="fas fa-palette fa-2x mr-3 text-muted"></i>
+                        <div>
+                            <strong>Professional Makeup Mixing Palette</strong><br>
+                            <span class="price-tag">$18.99</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary-custom" onclick="addToWishlist()">Add to Wishlist</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 4.6 JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Basket functionality
+        let basketItems = JSON.parse(localStorage.getItem('basketItems')) || [];
+        let basketCount = basketItems.length;
+        let basketTotal = basketItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+        // Initialize basket display on page load
+        updateBasketDisplay();
+
+         function changeImage(imageUrl) {
+         const mainImage = document.getElementById('mainImage');
+         mainImage.style.backgroundImage = `url('${imageUrl}')`;
+    
+         // Update active thumbnail
+    document.querySelectorAll('.thumbnail').forEach(thumb => thumb.classList.remove('active'));
+    event.target.closest('.thumbnail').classList.add('active');
+}
+
+        function increaseQuantity() {
+            const quantityInput = document.getElementById('quantity');
+            let currentValue = parseInt(quantityInput.value);
+            if (currentValue < 10) {
+                quantityInput.value = currentValue + 1;
+            }
+        }
+
+        function decreaseQuantity() {
+            const quantityInput = document.getElementById('quantity');
+            let currentValue = parseInt(quantityInput.value);
+            if (currentValue > 1) {
+                quantityInput.value = currentValue - 1;
+            }
+        }
+
+        function addToBasket() {
+            const quantity = parseInt(document.getElementById('quantity').value);
+            const productName = 'Professional Makeup Mixing Palette';
+            const price = 18.99;
+            
+            // Check if item already exists in basket
+            const existingItemIndex = basketItems.findIndex(item => item.name === productName);
+            
+            if (existingItemIndex > -1) {
+                basketItems[existingItemIndex].quantity += quantity;
+            } else {
+                basketItems.push({
+                    name: productName,
+                    price: price,
+                    quantity: quantity
+                });
+            }
+            
+            basketCount = basketItems.reduce((sum, item) => sum + item.quantity, 0);
+            basketTotal = basketItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            
+            // Save to localStorage
+            localStorage.setItem('basketItems', JSON.stringify(basketItems));
+            
+            updateBasketDisplay();
+            showSuccessAlert(`${quantity} x ${productName} added to your basket!`);
+        }
+
+        function addRelatedToBasket(productName, price) {
+            basketItems.push({name: productName, price: price, quantity: 1});
+            basketCount++;
+            basketTotal += price;
+            
+            // Save to localStorage
+            localStorage.setItem('basketItems', JSON.stringify(basketItems));
+            
+            updateBasketDisplay();
+            showSuccessAlert(`${productName} added to your basket!`);
+        }
+
+        function updateBasketDisplay() {
+            document.getElementById('basketCount').textContent = basketCount;
+            document.getElementById('basketTotal').textContent = basketTotal.toFixed(2);
+            
+            const basketItemsDiv = document.getElementById('basketItems');
+            if (basketItems.length === 0) {
+                basketItemsDiv.innerHTML = `
+                    <div class="text-center py-4">
+                        <i class="fas fa-shopping-basket fa-3x text-muted mb-3"></i>
+                        <p class="text-muted">Your basket is empty</p>
+                    </div>
+                `;
+            } else {
+                let itemsHTML = '';
+                basketItems.forEach((item, index) => {
+                    itemsHTML += `
+                        <div class="d-flex justify-content-between align-items-center py-2 border-bottom">
+                            <div>
+                                <strong>${item.name}</strong><br>
+                                <small class="text-muted">Quantity: ${item.quantity}</small>
+                            </div>
+                            <div>
+                                <span class="price-tag">${(item.price * item.quantity).toFixed(2)}</span>
+                                <button class="btn btn-sm btn-outline-danger ml-2" onclick="removeFromBasket(${index})">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                });
+                basketItemsDiv.innerHTML = itemsHTML;
+            }
+        }
+
+        function removeFromBasket(index) {
+            basketTotal -= (basketItems[index].price * basketItems[index].quantity);
+            basketCount -= basketItems[index].quantity;
+            basketItems.splice(index, 1);
+            
+            // Save to localStorage
+            localStorage.setItem('basketItems', JSON.stringify(basketItems));
+            
+            updateBasketDisplay();
+        }
+
+        function addToWishlist() {
+            $('#wishlistModal').modal('hide');
+            showSuccessAlert('Product added to your wishlist!');
+        }
+
+        function showSuccessAlert(message) {
+            const alert = document.getElementById('successAlert');
+            const alertMessage = document.getElementById('alertMessage');
+            alertMessage.textContent = message;
+            alert.classList.add('show');
+            setTimeout(() => {
+                alert.classList.remove('show');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
