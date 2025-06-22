@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Your Palette - Premium Korean Makeup Tools</title>
+    
+    <!-- Bootstrap 4.6 CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-palette"></i> Your Palette
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#categories">Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#featured">Featured</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-search"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="far fa-user"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="far fa-heart"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#basketModal">
+                            <i class="fas fa-shopping-basket"></i>
+                            <span class="basket-count" id="basketCount">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="soko-hero">
+        <div class="container text-center">
+            <h1 class="display-4">Get in Touch</h1>
+            <p class="lead">We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
+        </div>
+    </div>
+
+    <!-- Success Alert (initially hidden) -->
+    <div class="container mt-3">
+        <div class="alert alert-success alert-dismissible fade" id="successAlert" role="alert">
+            <i class="fas fa-check-circle mr-2"></i>
+            <strong>Success!</strong> Your message has been sent successfully. We'll get back to you soon!
+            <button type="button" class="close" data-dismiss="alert">
+                <span>&times;</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Contact Content -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Contact Form -->
+                <div class="col-lg-8 mb-4">
+                    <div class="product-info">
+                        <h2 class="section-title text-left">Send us a Message</h2>
+                        <form id="contactForm">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="firstName" class="form-label"><strong>First Name *</strong></label>
+                                    <input type="text" class="form-control quantity-input" id="firstName" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="lastName" class="form-label"><strong>Last Name *</strong></label>
+                                    <input type="text" class="form-control quantity-input" id="lastName" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="email" class="form-label"><strong>Email Address *</strong></label>
+                                    <input type="email" class="form-control quantity-input" id="email" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="phone" class="form-label"><strong>Phone Number</strong></label>
+                                    <input type="tel" class="form-control quantity-input" id="phone">
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="subject" class="form-label"><strong>Subject *</strong></label>
+                                <select class="form-control quantity-input" id="subject" required>
+                                    <option value="">Please select a subject</option>
+                                    <option value="product-inquiry">Product Inquiry</option>
+                                    <option value="order-support">Order Support</option>
+                                    <option value="shipping">Shipping & Delivery</option>
+                                    <option value="returns">Returns & Exchanges</option>
+                                    <option value="partnership">Partnership Opportunities</option>
+                                    <option value="feedback">Feedback & Suggestions</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="mb-4">
+                                <label for="message" class="form-label"><strong>Message *</strong></label>
+                                <textarea class="form-control quantity-input" id="message" rows="6" required placeholder="Tell us how we can help you..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary-custom btn-lg">
+                                <i class="fas fa-paper-plane mr-2"></i>Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="col-lg-4">
+                    <div class="product-info">
+                        <h3 class="section-title text-left">Contact Information</h3>
+                        
+                        <div class="mb-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="category-icon mr-3" style="font-size: 1.5rem;">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <strong>Email</strong><br>
+                                    <a href="mailto:hello@yourpalette.com" class="text-decoration-none" style="color: var(--tan-primary);">hello@yourpalette.com</a>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="category-icon mr-3" style="font-size: 1.5rem;">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div>
+                                    <strong>Phone</strong><br>
+                                    <a href="tel:+1-555-PALETTE" class="text-decoration-none" style="color: var(--tan-primary);">+1 (555) PALETTE</a>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex align-items-center mb-4">
+                                <div class="category-icon mr-3" style="font-size: 1.5rem;">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <strong>Address</strong><br>
+                                    123 Beauty Lane<br>
+                                    Los Angeles, CA 90210
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4 class="mb-3">Business Hours</h4>
+                        <ul class="features-list">
+                            <li><i class="fas fa-clock"></i> Monday - Friday: 9:00 AM - 6:00 PM PST</li>
+                            <li><i class="fas fa-clock"></i> Saturday: 10:00 AM - 4:00 PM PST</li>
+                            <li><i class="fas fa-clock"></i> Sunday: Closed</li>
+                        </ul>
+                        
+                        <div class="mt-4">
+                            <h4 class="mb-3">Follow Us</h4>
+                            <div class="social-icons" style="justify-content: flex-start;">
+                                <i class="fab fa-instagram" title="Follow us on Instagram"></i>
+                                <i class="fab fa-facebook" title="Like us on Facebook"></i>
+                                <i class="fab fa-twitter" title="Follow us on Twitter"></i>
+                                <i class="fab fa-youtube" title="Subscribe to our YouTube"></i>
+                                <i class="fab fa-tiktok" title="Follow us on TikTok"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="card category-card">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-shipping-fast mr-2" style="color: var(--tan-primary);"></i>Shipping & Delivery</h5>
+                            <p class="card-text"><strong>How long does shipping take?</strong><br>
+                            We offer free standard shipping (5-7 business days) on orders over $50. Express shipping (2-3 business days) is available for $9.99.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="card category-card">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-undo mr-2" style="color: var(--tan-primary);"></i>Returns & Exchanges</h5>
+                            <p class="card-text"><strong>What's your return policy?</strong><br>
+                            We accept returns within 30 days of purchase. Items must be in original condition and packaging. Return shipping is free for defective items.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="card category-card">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-certificate mr-2" style="color: var(--tan-primary);"></i>Product Authenticity</h5>
+                            <p class="card-text"><strong>Are your products authentic?</strong><br>
+                            Yes! All our products are sourced directly from authorized Korean manufacturers and distributors. We guarantee 100% authenticity.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="card category-card">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-credit-card mr-2" style="color: var(--tan-primary);"></i>Payment & Security</h5>
+                            <p class="card-text"><strong>Is my payment information secure?</strong><br>
+                            Absolutely. We use industry-standard SSL encryption and never store your payment information. We accept all major credit cards and PayPal.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="py-5 newsletter-section">
+        <div class="container">
+            <div class="newsletter-content text-center">
+                <h3>Stay Connected</h3>
+                <p>Subscribe to our newsletter for exclusive offers, beauty tips, and the latest Korean makeup tool releases.</p>
+                <form class="newsletter-form">
+                    <div class="input-group justify-content-center">
+                        <input type="email" class="form-control" placeholder="Enter your email address" style="max-width: 400px;">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary-custom" type="submit">
+                                <i class="fas fa-envelope mr-2"></i>Subscribe
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Basket Icon -->
+    <div class="basket-icon" data-toggle="modal" data-target="#basketModal">
+        <i class="fas fa-shopping-basket"></i>
+        <span class="basket-count" id="basketCount">0</span>
+    </div>
+
+    <!-- Basket Modal -->
+    <div class="modal fade" id="basketModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="fas fa-shopping-basket mr-2"></i>Your Basket
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="basketItems">
+                        <div class="text-center py-4">
+                            <i class="fas fa-shopping-basket fa-3x text-muted mb-3"></i>
+                            <p class="text-muted">Your basket is empty</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="w-100">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <strong>Total: $<span id="basketTotal">0.00</span></strong>
+                        </div>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Continue Shopping</button>
+                        <button type="button" class="btn btn-primary-custom">Proceed to Checkout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enhanced Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5><i class="fas fa-palette mr-2"></i>Your Palette</h5>
+                    <p>Discover the art of Korean beauty with our premium makeup tools. Designed for the modern woman who values quality, precision, and the perfect glow.</p>
+                    
+                    <div class="footer-links">
+                        <a href="index.html#categories" class="footer-link">Shop Tools</a>
+                        <a href="blog.html" class="footer-link">Beauty Tips</a>
+                        <a href="index.html#featured" class="footer-link">New Arrivals</a>
+                        <a href="contact.html" class="footer-link">Contact</a>
+                    </div>
+                </div>
+                <div class="col-md-6 text-md-right">
+                    <h6>Join Our Beauty Community</h6>
+                    <p style="font-size: 0.9rem; margin-bottom: 1rem;">Follow us for daily K-beauty inspiration, tutorials, and exclusive offers</p>
+                    <div class="social-icons">
+                        <i class="fab fa-instagram" title="Follow us on Instagram"></i>
+                        <i class="fab fa-facebook" title="Like us on Facebook"></i>
+                        <i class="fab fa-twitter" title="Follow us on Twitter"></i>
+                        <i class="fab fa-youtube" title="Subscribe to our YouTube"></i>
+                        <i class="fab fa-tiktok" title="Follow us on TikTok"></i>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <small>&copy; 2025 Your Palette. Crafted with 💝 for beauty lovers worldwide. All rights reserved.</small>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 4.6 JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Enhanced Header Scroll Effect
+        $(window).scroll(function() {
+            if ($(window).scrollTop() > 100) {
+                $('.navbar-custom').addClass('scrolled');
+            } else {
+                $('.navbar-custom').removeClass('scrolled');
+            }
+        });
+    </script>
+
+    <script>
+        // Simple basket functionality
+        let basketItems = JSON.parse(localStorage.getItem('basketItems')) || [];
+        let basketCount = basketItems.length;
+        let basketTotal = basketItems.reduce((total, item) => total + item.price, 0);
+
+        function updateBasketDisplay() {
+            document.getElementById('basketCount').textContent = basketCount;
+            document.getElementById('basketTotal').textContent = basketTotal.toFixed(2);
+            
+            const basketItemsDiv = document.getElementById('basketItems');
+            if (basketItems.length === 0) {
+                basketItemsDiv.innerHTML = `
+                    <div class="text-center py-4">
+                        <i class="fas fa-shopping-basket fa-3x text-muted mb-3"></i>
+                        <p class="text-muted">Your basket is empty</p>
+                    </div>
+                `;
+            } else {
+                let itemsHTML = '';
+                basketItems.forEach((item, index) => {
+                    itemsHTML += `
+                        <div class="d-flex justify-content-between align-items-center py-2 border-bottom">
+                            <div>
+                                <strong>${item.name}</strong>
+                            </div>
+                            <div>
+                                <span class="price-tag">$${item.price.toFixed(2)}</span>
+                                <button class="btn btn-sm btn-outline-danger ml-2" onclick="removeFromBasket(${index})">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                });
+                basketItemsDiv.innerHTML = itemsHTML;
+            }
+        }
+
+        function removeFromBasket(index) {
+            basketTotal -= basketItems[index].price;
+            basketItems.splice(index, 1);
+            basketCount--;
+            localStorage.setItem('basketItems', JSON.stringify(basketItems));
+            updateBasketDisplay();
+        }
+
+        // Initialize basket display on page load
+        updateBasketDisplay();
+
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show success alert
+            const alert = document.getElementById('successAlert');
+            alert.classList.add('show');
+            
+            // Reset form
+            this.reset();
+            
+            // Scroll to top to show alert
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+            
+            // Hide alert after 5 seconds
+            setTimeout(() => {
+                alert.classList.remove('show');
+            }, 5000);
+        });
+
+        // Newsletter form submission  
+        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show success alert
+            const alert = document.getElementById('successAlert');
+            alert.querySelector('strong').textContent = 'Success!';
+            alert.querySelector('strong').nextSibling.textContent = ' Thank you for subscribing to our newsletter!';
+            alert.classList.add('show');
+            
+            // Reset form
+            this.reset();
+            
+            // Scroll to alert
+            alert.scrollIntoView({ behavior: 'smooth' });
+            
+            // Hide alert after 5 seconds
+            setTimeout(() => {
+                alert.classList.remove('show');
+            }, 5000);
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
