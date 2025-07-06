@@ -1,0 +1,154 @@
+/* Button Styles */
+.btn-primary-custom {
+    background-color: var(--tan-primary);
+    border-color: var(--tan-primary);
+    color: white;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+}
+
+.btn-primary-custom:hover {
+    background-color: var(--tan-dark);
+    border-color: var(--tan-dark);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.btn-primary-custom:focus {
+    box-shadow: 0 0 0 0.2rem rgba(198, 156, 109, 0.25);
+}
+
+.btn-outline-primary-custom {
+    color: var(--tan-primary);
+    border-color: var(--tan-primary);
+    background-color: transparent;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+}
+
+.btn-outline-primary-custom:hover {
+    background-color: var(--tan-primary);
+    border-color: var(--tan-primary);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.btn-outline-primary-custom:focus {
+    box-shadow: 0 0 0 0.2rem rgba(198, 156, 109, 0.25);
+}
+
+.btn-secondary-custom {
+    background-color: var(--charcoal);
+    border-color: var(--charcoal);
+    color: white;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+}
+
+.btn-secondary-custom:hover {
+    background-color: #1a1a1a;
+    border-color: #1a1a1a;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.btn-secondary-custom:focus {
+    box-shadow: 0 0 0 0.2rem rgba(44, 44, 44, 0.25);
+}
+
+.btn-small-custom {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    border-radius: 20px;
+}
+
+.btn-lg-custom {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    border-radius: 30px;
+}
+
+/* Quantity control buttons */
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.quantity-btn {
+    background-color: var(--tan-primary);
+    border: none;
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.quantity-btn:hover {
+    background-color: var(--tan-dark);
+    transform: scale(1.1);
+}
+
+.quantity-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.quantity-display {
+    min-width: 40px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1rem;
+    color: var(--charcoal);
+}
+
+/* Button group styles */
+.btn-group-custom {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.btn-group-custom .btn {
+    flex: 1;
+    min-width: 120px;
+}
+
+@media (max-width: 768px) {
+    .btn-group-custom {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .btn-group-custom .btn {
+        width: 100%;
+    }
+}

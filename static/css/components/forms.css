@@ -1,0 +1,278 @@
+/* Form Styles */
+.form-control {
+    border-radius: 8px;
+    border: 2px solid var(--tan-light);
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    background-color: white;
+}
+
+.form-control:focus {
+    border-color: var(--tan-primary);
+    box-shadow: 0 0 0 0.2rem rgba(198, 156, 109, 0.25);
+    outline: none;
+}
+
+.form-control::placeholder {
+    color: #aaa;
+    font-style: italic;
+}
+
+.form-label {
+    font-weight: 600;
+    color: var(--charcoal);
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+/* Search Form */
+.search-form {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+/* Search Input and Button Styling */
+.search-input {
+    height: 48px !important;
+    border-radius: 25px 0 0 25px !important;
+    border: 2px solid var(--tan-primary) !important;
+    border-right: none !important;
+    font-size: 1rem !important;
+    padding: 0 1.5rem !important;
+}
+
+.search-input:focus {
+    border-color: var(--tan-dark) !important;
+    box-shadow: 0 0 0 0.2rem rgba(198, 156, 109, 0.25) !important;
+}
+
+.search-btn {
+    height: 48px !important;
+    border-radius: 0 25px 25px 0 !important;
+    border: 2px solid var(--tan-primary) !important;
+    border-left: none !important;
+    padding: 0 2rem !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+}
+
+.main-search {
+    max-width: 500px !important;
+    margin: 0 auto !important;
+}
+
+.search-form .form-control {
+    height: 48px;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.search-form .btn {
+    height: 48px;
+    border-radius: 8px;
+    font-size: 1rem;
+    padding: 0 1.5rem;
+}
+
+/* Filter Form */
+.filter-form {
+    background: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+/* Filter Dropdowns */
+.filter-select {
+    height: 42px !important;
+    border-radius: 20px !important;
+    border: 2px solid var(--tan-light) !important;
+    font-size: 0.9rem !important;
+    padding: 0.5rem 1rem !important;
+    background-color: white !important;
+}
+
+.filter-select:focus {
+    border-color: var(--tan-primary) !important;
+    box-shadow: 0 0 0 0.2rem rgba(198, 156, 109, 0.15) !important;
+}
+
+.filter-dropdowns {
+    background: white !important;
+    border-radius: 15px !important;
+    padding: 1.5rem !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
+    margin-top: 1rem !important;
+}
+
+.filter-form .form-control {
+    height: 40px;
+    font-size: 0.9rem;
+}
+
+.filter-form label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--charcoal);
+    margin-bottom: 0.25rem;
+}
+
+/* Checkout Form */
+.checkout-form {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.checkout-form .form-control {
+    margin-bottom: 1rem;
+}
+
+.checkout-form .form-control.is-invalid {
+    border-color: #dc3545;
+}
+
+.checkout-form .invalid-feedback {
+    display: block;
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 0.875rem;
+    color: #dc3545;
+}
+
+/* Form Validation */
+.was-validated .form-control:valid {
+    border-color: #28a745;
+}
+
+.was-validated .form-control:invalid {
+    border-color: #dc3545;
+}
+
+.valid-feedback {
+    display: block;
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 0.875rem;
+    color: #28a745;
+}
+
+/* Input Groups */
+.input-group {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    width: 100%;
+}
+
+.input-group > .form-control {
+    position: relative;
+    flex: 1 1 auto;
+    width: 1%;
+    min-width: 0;
+}
+
+.input-group-append {
+    margin-left: -1px;
+    display: flex;
+}
+
+.input-group-text {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0;
+    font-size: 0.95rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--charcoal);
+    text-align: center;
+    white-space: nowrap;
+    background-color: var(--tan-light);
+    border: 2px solid var(--tan-light);
+    border-radius: 8px;
+}
+
+.input-group > .form-control:not(:last-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.input-group > .input-group-append > .btn {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+/* Select Dropdowns */
+.form-select {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m1 6 7 7 7-7'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 16px 12px;
+    padding-right: 2.25rem;
+}
+
+/* Textarea */
+textarea.form-control {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Form Row */
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -5px;
+    margin-left: -5px;
+}
+
+.form-row > .col,
+.form-row > [class*="col-"] {
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+/* Required Field Indicator */
+.required::after {
+    content: " *";
+    color: #dc3545;
+}
+
+/* Form Help Text */
+.form-text {
+    display: block;
+    margin-top: 0.25rem;
+    font-size: 0.875rem;
+    color: #6c757d;
+}
+
+@media (max-width: 768px) {
+    .search-form,
+    .filter-form,
+    .checkout-form {
+        padding: 1rem;
+    }
+    
+    .form-row {
+        margin-right: 0;
+        margin-left: 0;
+    }
+    
+    .form-row > .col,
+    .form-row > [class*="col-"] {
+        padding-right: 0;
+        padding-left: 0;
+        margin-bottom: 1rem;
+    }
+}

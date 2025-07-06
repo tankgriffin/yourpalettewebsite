@@ -1,0 +1,57 @@
+/* Navigation Styles */
+.navbar-custom {
+    background: linear-gradient(135deg, white 0%, var(--cream) 100%);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    padding: 1rem 0;
+    border-bottom: 2px solid var(--tan-light);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 2rem;
+    color: var(--tan-primary) !important;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.navbar-brand i {
+    font-size: 1.5rem;
+    color: var(--tan-primary);
+}
+
+.nav-link {
+    color: var(--charcoal) !important;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 0.75rem 1.5rem !important;
+    margin: 0 0.25rem;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: white !important;
+    background-color: var(--tan-primary);
+    transform: translateY(-2px);
+}
+
+.nav-link.active {
+    color: white !important;
+    background-color: var(--tan-primary);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.navbar-toggler {
+    border: 2px solid var(--tan-primary);
+    padding: 0.5rem 0.75rem;
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 0.2rem rgba(198, 156, 109, 0.25);
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28198, 156, 109, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}

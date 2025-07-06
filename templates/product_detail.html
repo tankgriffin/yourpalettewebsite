@@ -1,0 +1,213 @@
+{% extends "base.html" %}
+
+{% block title %}{{ product.name }} - Your Palette{% endblock %}
+
+{% block page_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/pages/product-detail.css') }}">
+{% endblock %}
+
+{% block content %}
+    <!-- Breadcrumb -->
+    <div class="container">
+        <nav aria-label="breadcrumb" class="breadcrumb-custom">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ url_for('home') }}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{ url_for('home') }}?search={{ product.category.lower() }}">{{ product.category }}</a></li>
+                <li class="breadcrumb-item active">{{ product.name }}</li>
+            </ol>
+        </nav>
+    </div>
+
+    <!-- Product Details -->
+    <div class="container py-4">
+        <div class="row">
+            <!-- Product Images -->
+            <div class="col-lg-6">
+                <div class="product-image-section">
+                    <div class="product-main-image" id="mainImage" style="background-image: url('{{ url_for('static', filename=product.image_url) }}');">
+                    </div>
+                    <div class="product-thumbnails">
+                        <div class="thumbnail active" style="background-image: url('{{ url_for('static', filename=product.image_url) }}');" onclick="changeImage('{{ url_for('static', filename=product.image_url) }}')">
+                        </div>
+                        <!-- Additional thumbnails can be added here when multiple images are available -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Information -->
+            <div class="col-lg-6">
+                <div class="product-info">
+                    <div class="product-header">
+                        <div class="product-brand">{{ product.brand }}</div>
+                        <h1 class="product-title">{{ product.name }}</h1>
+                        
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="rating-text">(127 reviews)</span>
+                        </div>
+
+                        <div class="price-stock-container">
+                            <div class="product-price">${{ "%.2f"|format(product.price) }}</div>
+                            <div class="stock-status">
+                                <i class="fas fa-check-circle mr-1"></i>
+                                In Stock ({{ product.stock_quantity }} available)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-description">
+                        <h3>About This Product</h3>
+                        <p>{{ product.description }}</p>
+                    </div>
+
+                    <!-- Quantity Selector and Add to Basket Form -->
+                    <form method="POST" action="{{ url_for('add_to_basket') }}">
+                        <input type="hidden" name="product_id" value="{{ product.id }}">
+                        
+                        <div class="quantity-selector">
+                            <span class="mr-3"><strong>Quantity:</strong></span>
+                            <button type="button" class="quantity-btn" onclick="decreaseQuantity()">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <input type="number" class="quantity-input" id="quantity" name="quantity" value="1" min="1" max="10">
+                            <button type="button" class="quantity-btn" onclick="increaseQuantity()">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="action-buttons">
+                            <button type="submit" class="btn btn-primary-custom btn-add-to-basket">
+                                <i class="fas fa-shopping-basket mr-2"></i>Add to Basket
+                            </button>
+                            
+                            <a href="{{ url_for('basket') }}" class="btn btn-outline-custom btn-wishlist">
+                                <i class="fas fa-shopping-basket mr-2"></i>View Basket
+                            </a>
+                        </div>
+                    </form>
+
+                    <!-- Product Features -->
+                    <div class="product-features">
+                        <h3>Key Features</h3>
+                        <div class="features-grid">
+                            <div class="feature-item">
+                                <i class="fas fa-medal"></i>
+                                <span>Premium {{ product.brand }} quality</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-spray-can"></i>
+                                <span>Easy to clean and sanitize</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-palette"></i>
+                                <span>Perfect for {{ product.category.lower() }}</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-thumbs-up"></i>
+                                <span>Professional makeup artist approved</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-suitcase"></i>
+                                <span>Compact and portable design</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Specifications -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <div class="product-info">
+                    <h3 class="section-title">Product Specifications</h3>
+                    <table class="table specification-table">
+                        <tbody>
+                            <tr>
+                                <th width="30%">Brand</th>
+                                <td>{{ product.brand }}</td>
+                            </tr>
+                            <tr>
+                                <th>Category</th>
+                                <td>{{ product.category }}</td>
+                            </tr>
+                            <tr>
+                                <th>Price</th>
+                                <td>${{ "%.2f"|format(product.price) }}</td>
+                            </tr>
+                            <tr>
+                                <th>Stock Quantity</th>
+                                <td>{{ product.stock_quantity }} units</td>
+                            </tr>
+                            <tr>
+                                <th>Product ID</th>
+                                <td>#{{ product.id }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Related Products -->
+        {% if related_products %}
+        <div class="related-products">
+            <h3 class="section-title">You Might Also Like</h3>
+            <div class="row">
+                {% for related_product in related_products %}
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card related-product-card">
+                        <div class="related-product-image" style="background-image: url('{{ url_for('static', filename=related_product.image_url) }}');">
+                        </div>
+                        <div class="card-body">
+                            <h6 class="card-title">{{ related_product.name }}</h6>
+                            <p class="card-text small">{{ related_product.description[:50] }}{% if related_product.description|length > 50 %}...{% endif %}</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="price-tag">${{ "%.2f"|format(related_product.price) }}</span>
+                                <a href="{{ url_for('product_detail', product_id=related_product.id) }}" class="btn btn-sm btn-primary-custom">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    function changeImage(imageUrl) {
+        const mainImage = document.getElementById('mainImage');
+        mainImage.style.backgroundImage = `url('${imageUrl}')`;
+    
+        // Update active thumbnail
+        document.querySelectorAll('.thumbnail').forEach(thumb => thumb.classList.remove('active'));
+        event.target.closest('.thumbnail').classList.add('active');
+    }
+
+    function increaseQuantity() {
+        const quantityInput = document.getElementById('quantity');
+        let currentValue = parseInt(quantityInput.value);
+        if (currentValue < 10) {
+            quantityInput.value = currentValue + 1;
+        }
+    }
+
+    function decreaseQuantity() {
+        const quantityInput = document.getElementById('quantity');
+        let currentValue = parseInt(quantityInput.value);
+        if (currentValue > 1) {
+            quantityInput.value = currentValue - 1;
+        }
+    }
+</script>
+{% endblock %}

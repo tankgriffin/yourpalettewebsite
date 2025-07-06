@@ -1,0 +1,128 @@
+/* Your Palette - Base Styles */
+
+:root {
+    --tan-primary: #C69C6D;
+    --tan-light: #E8DCC6;
+    --tan-dark: #A67C52;
+    --cream: #F5F5DC;
+    --charcoal: #2C2C2C;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--cream);
+    color: var(--charcoal);
+}
+
+/* Utilities */
+.section-title {
+    color: var(--charcoal);
+    font-weight: 700;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+/* Footer */
+footer {
+    background-color: var(--charcoal);
+    color: var(--cream);
+    padding: 3rem 0;
+    margin-top: 4rem;
+}
+
+/* Grid and Layout Utilities */
+.col-lg-3, .col-md-6 {
+    margin-bottom: 2rem !important;
+    padding-right: 15px !important;
+    padding-left: 15px !important;
+}
+
+/* Related Product Cards */
+.related-product-card {
+    min-height: 350px !important;
+    overflow: visible !important;
+    margin-bottom: 1.5rem !important;
+}
+
+.related-product-card .card-body {
+    padding: 1.25rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    height: 100% !important;
+}
+
+.related-product-card .btn {
+    padding: 0.6rem 1rem !important;
+    font-size: 0.8rem !important;
+    border-radius: 15px !important;
+    font-weight: 600 !important;
+    min-height: 36px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    border: 2px solid transparent !important;
+    box-sizing: border-box !important;
+}
+
+.related-product-card .btn-sm {
+    padding: 0.6rem 1rem !important;
+    font-size: 0.8rem !important;
+    min-height: 36px !important;
+}
+
+.related-product-card .btn-primary-custom {
+    background-color: var(--tan-primary) !important;
+    border-color: var(--tan-primary) !important;
+    color: white !important;
+}
+
+.related-product-card .btn-primary-custom:hover {
+    background-color: var(--tan-dark) !important;
+    border-color: var(--tan-dark) !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2) !important;
+}
+
+.related-product-card .card-text {
+    flex-grow: 1 !important;
+    margin-bottom: 1rem !important;
+}
+
+.related-product-card .d-flex {
+    margin-top: auto !important;
+    align-items: center !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    /* Jumbotron responsive styles moved to styles.css to prevent conflicts */
+    
+    .product-card {
+        min-height: 380px !important;
+    }
+    
+    .product-card:hover {
+        transform: translateY(-4px) !important;
+    }
+    
+    .product-card .btn {
+        padding: 0.65rem 0.9rem !important;
+        font-size: 0.85rem !important;
+        min-height: 40px !important;
+    }
+    
+    .product-card .card-body {
+        padding: 1.25rem !important;
+    }
+    
+    .related-product-card {
+        min-height: 320px !important;
+    }
+    
+    .related-product-card .btn {
+        padding: 0.5rem 0.8rem !important;
+        font-size: 0.75rem !important;
+        min-height: 32px !important;
+    }
+}

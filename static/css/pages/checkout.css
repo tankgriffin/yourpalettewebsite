@@ -1,0 +1,425 @@
+/* Checkout Page Styles */
+.checkout-container {
+    padding: 2rem 0;
+}
+
+.checkout-header {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.checkout-header h1 {
+    color: var(--charcoal);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.checkout-header p {
+    color: #666;
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+/* Customer Information Form */
+.customer-info-card {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+.customer-info-card .card-header {
+    background: linear-gradient(135deg, var(--tan-light) 0%, var(--cream) 100%);
+    border-radius: 15px 15px 0 0;
+    padding: 1.5rem;
+    margin: -2rem -2rem 2rem -2rem;
+    border-bottom: 2px solid var(--tan-light);
+}
+
+.customer-info-card .card-header h4 {
+    color: var(--charcoal);
+    font-weight: 600;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.customer-info-card .form-control {
+    height: 48px;
+    border-radius: 8px;
+    border: 2px solid var(--tan-light);
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.customer-info-card .form-control:focus {
+    border-color: var(--tan-primary);
+    box-shadow: 0 0 0 0.2rem rgba(198, 156, 109, 0.25);
+}
+
+.customer-info-card textarea.form-control {
+    height: auto;
+    min-height: 100px;
+    resize: vertical;
+}
+
+.customer-info-card .form-label {
+    font-weight: 600;
+    color: var(--charcoal);
+    margin-bottom: 0.5rem;
+}
+
+.customer-info-card .invalid-feedback {
+    display: block;
+    font-size: 0.875rem;
+    color: #dc3545;
+    margin-top: 0.25rem;
+}
+
+.customer-info-card .form-control.is-invalid {
+    border-color: #dc3545;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 2px solid var(--tan-light);
+}
+
+.form-actions .btn {
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.form-actions .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+/* Order Summary */
+.order-summary-card {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 2rem;
+}
+
+.order-summary-card .card-header {
+    background: linear-gradient(135deg, var(--tan-light) 0%, var(--cream) 100%);
+    border-radius: 15px 15px 0 0;
+    padding: 1.5rem;
+    margin: -2rem -2rem 2rem -2rem;
+    border-bottom: 2px solid var(--tan-light);
+}
+
+.order-summary-card .card-header h4 {
+    color: var(--charcoal);
+    font-weight: 600;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.order-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid var(--tan-light);
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    transition: all 0.2s ease;
+}
+
+.order-item:hover {
+    background-color: var(--cream);
+}
+
+.order-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.order-item-image {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid var(--tan-light);
+    margin-right: 1rem;
+}
+
+.order-item-details {
+    flex-grow: 1;
+}
+
+.order-item-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--charcoal);
+    margin-bottom: 0.25rem;
+    line-height: 1.2;
+}
+
+.order-item-brand {
+    font-size: 0.8rem;
+    color: var(--tan-primary);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.25rem;
+}
+
+.order-item-quantity {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0.25rem;
+}
+
+.order-item-price {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--tan-primary);
+    text-align: right;
+}
+
+/* Order Summary Totals */
+.order-totals {
+    padding-top: 1.5rem;
+    border-top: 2px solid var(--tan-light);
+    margin-top: 1.5rem;
+}
+
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    font-size: 0.95rem;
+}
+
+.total-row.final-total {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--charcoal);
+    padding-top: 1rem;
+    border-top: 1px solid var(--tan-light);
+    margin-top: 1rem;
+}
+
+.total-row.final-total .amount {
+    color: var(--tan-primary);
+    font-size: 1.4rem;
+}
+
+.total-row .amount {
+    font-weight: 600;
+    color: var(--charcoal);
+}
+
+.total-row .free-shipping {
+    color: #28a745;
+    font-weight: 600;
+}
+
+/* Security Notice */
+.security-notice {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    background: #d4edda;
+    border: 1px solid #c3e6cb;
+    border-radius: 8px;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #155724;
+}
+
+.security-notice i {
+    color: #28a745;
+}
+
+/* Trust Badges */
+.trust-badges-card {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-top: 2rem;
+}
+
+.trust-badges-card h6 {
+    color: var(--charcoal);
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.trust-badges-card .row {
+    text-align: center;
+}
+
+.trust-badges-card .col-4 {
+    padding: 1rem;
+}
+
+.trust-badges-card i {
+    font-size: 2rem;
+    color: var(--tan-primary);
+    margin-bottom: 0.5rem;
+}
+
+.trust-badges-card small {
+    color: #666;
+    font-weight: 500;
+    font-size: 0.8rem;
+}
+
+/* Loading States */
+.processing-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.processing-content {
+    background: white;
+    padding: 3rem;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+}
+
+.processing-spinner {
+    width: 3rem;
+    height: 3rem;
+    border: 4px solid var(--tan-light);
+    border-top: 4px solid var(--tan-primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.processing-content h4 {
+    color: var(--charcoal);
+    margin-bottom: 1rem;
+}
+
+.processing-content p {
+    color: #666;
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .checkout-container {
+        padding: 1rem 0;
+    }
+    
+    .checkout-header {
+        padding: 1.5rem;
+    }
+    
+    .customer-info-card,
+    .order-summary-card {
+        padding: 1.5rem;
+    }
+    
+    .customer-info-card .card-header,
+    .order-summary-card .card-header {
+        margin: -1.5rem -1.5rem 1.5rem -1.5rem;
+        padding: 1rem;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .form-actions .btn {
+        width: 100%;
+    }
+    
+    .order-summary-card {
+        margin-top: 2rem;
+        position: static;
+    }
+    
+    .order-item {
+        flex-direction: column;
+        text-align: center;
+        padding: 1rem;
+    }
+    
+    .order-item-image {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+    
+    .order-item-details {
+        margin-bottom: 0.5rem;
+    }
+    
+    .order-item-price {
+        text-align: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .checkout-header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .customer-info-card,
+    .order-summary-card {
+        padding: 1rem;
+    }
+    
+    .customer-info-card .card-header,
+    .order-summary-card .card-header {
+        margin: -1rem -1rem 1rem -1rem;
+        padding: 1rem;
+    }
+    
+    .order-item-image {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .trust-badges-card .col-4 {
+        margin-bottom: 1rem;
+    }
+    
+    .processing-content {
+        padding: 2rem;
+    }
+}
