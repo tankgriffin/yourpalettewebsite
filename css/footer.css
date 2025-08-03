@@ -1,0 +1,36 @@
+/* Footer styles */
+
+footer {
+    background: linear-gradient(135deg, #2c2c2c 0%, #3a3a3a 50%, #2c2c2c 100%);
+    color: var(--cream);
+    padding: 4rem 0 2rem 0;
+    margin-top: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.footer-links a {
+    color: var(--cream);
+    margin-right: 15px;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--tan-primary);
+    text-decoration: none;
+}
+
+footer .social-icons i {
+    font-size: 1.5rem;
+    margin-left: 15px;
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+footer .social-icons i:hover {
+    color: var(--tan-primary);
+}
+
+footer hr {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}

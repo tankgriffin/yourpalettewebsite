@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Korean Beauty Tools Categories | Shop by Type Australia | Your Palette</title>
+    <meta name="description" content="Browse authentic Korean beauty tools by category. Palettes, spatulas, brushes & more. All 50% less than competitors. Free shipping Australia-wide. Find YOUR perfect tools today!">
+    
+    <!-- Schema Markup for Categories Page -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Korean Beauty Tools Categories",
+        "description": "Browse authentic Korean beauty tools by category at Australia's most affordable prices",
+        "url": "https://yourpalette.com.au/categories",
+        "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://yourpalette.com.au"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Categories",
+                    "item": "https://yourpalette.com.au/categories"
+                }
+            ]
+        }
+    }
+    </script>
+    
+    <!-- Bootstrap 4.6 CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/utilities.css">
+    <link rel="stylesheet" href="css/navigation.css">
+    <link rel="stylesheet" href="css/buttons.css">
+    <link rel="stylesheet" href="css/cards.css">
+    <link rel="stylesheet" href="css/basket.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <style>
+        /* Categories Page Specific Styles */
+        .categories-hero {
+            background: linear-gradient(135deg, 
+                #f5f1e8 0%, 
+                #ede5d3 25%, 
+                #e8ddc7 50%, 
+                #e3d5bb 75%, 
+                #ddd0b0 100%);
+            padding: 6rem 0 4rem;
+        }
+        
+        .search-filter-bar {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(198, 156, 109, 0.2);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin: -3rem auto 3rem auto;
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 8px 32px rgba(198, 156, 109, 0.15);
+            max-width: 1200px;
+        }
+        
+        .filter-dropdown {
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            padding: 12px 16px;
+            transition: all 0.3s ease;
+            background: white;
+            font-size: 0.95rem;
+            line-height: 1.4;
+            height: auto;
+            min-height: 46px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .filter-dropdown:focus {
+            border-color: var(--tan-primary);
+            box-shadow: 0 0 0 0.2rem rgba(198, 156, 109, 0.25);
+        }
+        
+        .search-input {
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            padding: 12px 20px;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            height: 46px;
+            line-height: 1.4;
+        }
+        
+        .search-input:focus {
+            border-color: var(--tan-primary);
+            box-shadow: 0 0 0 0.2rem rgba(198, 156, 109, 0.25);
+        }
+        
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+            justify-items: center;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .results-count {
+            color: var(--tan-primary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .sort-options {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            margin-bottom: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .sort-btn {
+            background: rgba(198, 156, 109, 0.1);
+            border: 1px solid rgba(198, 156, 109, 0.3);
+            color: var(--charcoal);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .sort-btn:hover, .sort-btn.active {
+            background: var(--tan-primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .clear-filters {
+            color: var(--tan-primary);
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-left: 1rem;
+        }
+        
+        .clear-filters:hover {
+            color: var(--tan-dark);
+            text-decoration: underline;
+        }
+        
+        .form-label {
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--charcoal);
+        }
+        
+        .btn-primary-custom {
+            height: 46px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+        
+        /* Mobile Optimizations */
+        @media (max-width: 768px) {
+            .categories-hero {
+                padding: 4rem 0 3rem;
+            }
+            
+            .search-filter-bar {
+                margin: -2rem 1rem 2rem 1rem;
+                padding: 2rem 1.5rem;
+                max-width: none;
+            }
+            
+            .sort-options {
+                flex-wrap: wrap;
+                gap: 0.5rem;
+                justify-content: center;
+            }
+            
+            .filter-dropdown, .search-input {
+                margin-bottom: 1rem;
+            }
+            
+            .col-md-4, .col-md-3, .col-md-2 {
+                margin-bottom: 1rem;
+            }
+            
+            .category-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .search-filter-bar {
+                margin: -1.5rem 0.5rem 1.5rem 0.5rem;
+                padding: 1.5rem 1rem;
+            }
+            
+            .sort-btn {
+                font-size: 0.8rem;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-xl navbar-light navbar-custom">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="img/yp-main-logo.png" alt="Your Palette Logo" class="navbar-logo">
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="categories.html">Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#featured">Featured</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+                
+                <div class="navbar-nav">
+                    <div class="cart-icon" data-toggle="modal" data-target="#basketModal">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with 4-U Formula -->
+    <section class="categories-hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <nav aria-label="breadcrumb" class="mb-4">
+                        <ol class="breadcrumb justify-content-center bg-transparent">
+                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item active">Categories</li>
+                        </ol>
+                    </nav>
+                    
+                    <h1 class="hero-title mb-4">
+                        Find YOUR Perfect<br>
+                        <span class="highlight">K-Beauty Tools</span>
+                    </h1>
+                    
+                    <p class="hero-subtitle mb-4">
+                        Browse 50+ authentic Korean tools by category. All 50% less than BONIIK. 
+                        Free shipping Australia-wide. Your perfect routine starts here.
+                    </p>
+                    
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">50+</span>
+                            <div class="stat-label">Authentic Tools</div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">50%</span>
+                            <div class="stat-label">Less Than Competitors</div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">15K+</span>
+                            <div class="stat-label">Happy Aussie Customers</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search & Filter Bar -->
+    <section class="py-0">
+        <div class="container">
+            <div class="search-filter-bar">
+                <div class="row">
+                    <div class="col-12 mb-3">
+                        <h3 class="mb-3">
+                            <i class="fas fa-search mr-2"></i>Search & Filter Tools
+                        </h3>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="searchInput" class="form-label font-weight-bold">Search Products</label>
+                        <input type="text" id="searchInput" class="form-control search-input" placeholder="e.g. palette, spatula, brush...">
+                    </div>
+                    
+                    <div class="col-md-3 mb-3">
+                        <label for="categoryFilter" class="form-label font-weight-bold">Category</label>
+                        <select id="categoryFilter" class="form-control filter-dropdown">
+                            <option value="">All Categories</option>
+                            <option value="palettes">Mixing Palettes</option>
+                            <option value="spatulas">Spatulas & Tools</option>
+                            <option value="brushes">Brushes & Applicators</option>
+                            <option value="accessories">Accessories</option>
+                        </select>
+                    </div>
+                    
+                    <div class="col-md-3 mb-3">
+                        <label for="priceFilter" class="form-label font-weight-bold">Price Range</label>
+                        <select id="priceFilter" class="form-control filter-dropdown">
+                            <option value="">All Prices</option>
+                            <option value="0-15">Under $15</option>
+                            <option value="15-25">$15 - $25</option>
+                            <option value="25-35">$25 - $35</option>
+                            <option value="35+">$35+</option>
+                        </select>
+                    </div>
+                    
+                    <div class="col-md-2 mb-3">
+                        <label class="form-label font-weight-bold">&nbsp;</label>
+                        <div>
+                            <button type="button" class="btn btn-primary-custom btn-block" onclick="applyFilters()">
+                                <i class="fas fa-filter mr-2"></i>Filter
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-12">
+                        <a href="#" class="clear-filters" onclick="clearAllFilters()">
+                            <i class="fas fa-times mr-1"></i>Clear all filters
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="results-count" id="resultsCount">
+                        Showing 12 products
+                    </div>
+                    
+                    <div class="sort-options">
+                        <span class="font-weight-bold">Sort by:</span>
+                        <button class="sort-btn active" data-sort="featured">Featured</button>
+                        <button class="sort-btn" data-sort="price-low">Price: Low to High</button>
+                        <button class="sort-btn" data-sort="price-high">Price: High to Low</button>
+                        <button class="sort-btn" data-sort="savings">Best Savings</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="category-grid" id="productsGrid">
+                <!-- Product cards will be populated by JavaScript -->
+            </div>
+            
+            <!-- Load More CTA -->
+            <div class="text-center mt-5">
+                <button class="btn btn-outline-secondary btn-lg" id="loadMoreBtn" onclick="loadMoreProducts()">
+                    <i class="fas fa-plus mr-2"></i>Load More Tools
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Section -->
+    <section class="py-5 bg-white">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-12 mb-4">
+                    <h2 class="section-title">Why 15,000+ Aussies Choose Your Palette</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="testimonial-card">
+                        <div class="stars mb-2">★★★★★</div>
+                        <p>"Found exactly what I needed! Much cheaper than other stores and same quality."</p>
+                        <div class="testimonial-author">
+                            <strong>Jessica R.</strong><br>
+                            <small>Perth, WA</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="testimonial-card">
+                        <div class="stars mb-2">★★★★★</div>
+                        <p>"The filter system made it so easy to find tools for my skin type. Love the savings!"</p>
+                        <div class="testimonial-author">
+                            <strong>Amy T.</strong><br>
+                            <small>Adelaide, SA</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="testimonial-card">
+                        <div class="stars mb-2">★★★★★</div>
+                        <p>"Fast delivery to Darwin! Authentic Korean tools at unbeatable prices."</p>
+                        <div class="testimonial-author">
+                            <strong>Mia C.</strong><br>
+                            <small>Darwin, NT</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Modal -->
+    <div class="modal fade" id="basketModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="fas fa-shopping-basket mr-2"></i>Your Basket
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="basketItems">
+                        <div class="text-center py-4">
+                            <i class="fas fa-shopping-basket fa-3x text-muted mb-3"></i>
+                            <p class="text-muted">Your basket is empty</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="w-100">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <strong>Total: $<span id="basketTotal">0.00</span></strong>
+                        </div>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Continue Shopping</button>
+                        <button type="button" class="btn btn-primary-custom" id="checkoutBtn" onclick="proceedToCheckout()">Proceed to Checkout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Your Palette</h5>
+                    <p>Premium Korean makeup tools for the modern beauty enthusiast.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="categories.html">Categories</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contact Info</h5>
+                    <p><i class="fas fa-envelope"></i> info@yourpalette.com</p>
+                    <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <small>&copy; 2024 Your Palette. All rights reserved.</small>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Sticky CTA -->
+    <div class="mobile-sticky-cta d-lg-none">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-6">
+                    <button class="btn btn-outline-primary btn-block sticky-cta-btn" data-toggle="modal" data-target="#basketModal">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count-mobile" id="cartCountMobile">0</span>
+                    </button>
+                </div>
+                <div class="col-6">
+                    <button class="btn btn-primary-custom btn-block sticky-cta-btn" onclick="scrollToProducts()">
+                        <i class="fas fa-search"></i> Find MY Tools
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Product data with price anchoring
+        const products = [
+            {
+                id: 1,
+                name: "Makeup Mixing Palette",
+                category: "palettes",
+                price: 18.99,
+                originalPrice: 35.00,
+                image: "img/makeup-palette.jpg",
+                description: "Professional stainless steel palette for color mixing",
+                savings: 16.01
+            },
+            {
+                id: 2,
+                name: "Korean Spatula",
+                category: "spatulas",
+                price: 24.99,
+                originalPrice: 49.99,
+                image: "img/korean-spatula.jpg",
+                description: "Stainless Steel Spatula for smooth foundation application",
+                savings: 25.00
+            },
+            {
+                id: 3,
+                name: "Mini Palette",
+                category: "palettes",
+                price: 12.50,
+                originalPrice: 22.50,
+                image: "img/mini-palette.jpg",
+                description: "Miniature version for travel and touch-ups",
+                savings: 10.00
+            },
+            {
+                id: 4,
+                name: "Lip Kit",
+                category: "accessories",
+                price: 15.75,
+                originalPrice: 28.75,
+                image: "img/lip-kit.jpg",
+                description: "Lip pick with included spatula for easy application",
+                savings: 13.00
+            },
+            {
+                id: 5,
+                name: "LED Mirror",
+                category: "accessories",
+                price: 32.99,
+                originalPrice: 59.99,
+                image: "img/led-mirror.jpg",
+                description: "Professional LED makeup mirror with adjustable lighting",
+                savings: 27.00
+            },
+            {
+                id: 6,
+                name: "Precision Brush Set",
+                category: "brushes",
+                price: 19.99,
+                originalPrice: 39.99,
+                image: "img/makeup-palette-2.jpg",
+                description: "Set of 5 precision brushes for detailed application",
+                savings: 20.00
+            }
+        ];
+
+        let filteredProducts = [...products];
+        let displayedProducts = 6;
+
+        // Cart functionality
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        function updateCartCount() {
+            const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
+            document.getElementById('cartCount').textContent = cartCount;
+            const mobileCartCount = document.getElementById('cartCountMobile');
+            if (mobileCartCount) {
+                mobileCartCount.textContent = cartCount;
+                mobileCartCount.style.display = cartCount > 0 ? 'flex' : 'none';
+            }
+        }
+
+        function addToCart(name, price, image) {
+            const existingItem = cart.find(item => item.name === name);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    name: name,
+                    price: price,
+                    quantity: 1,
+                    image: image
+                });
+            }
+            
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
+            
+            // Show success feedback
+            const button = event.target;
+            const originalText = button.innerHTML;
+            button.innerHTML = '<i class="fas fa-check mr-2"></i>Added!';
+            button.disabled = true;
+            
+            setTimeout(() => {
+                button.innerHTML = originalText;
+                button.disabled = false;
+            }, 1500);
+        }
+
+        function renderProducts() {
+            const grid = document.getElementById('productsGrid');
+            const productsToShow = filteredProducts.slice(0, displayedProducts);
+            
+            grid.innerHTML = productsToShow.map(product => `
+                <div class="card product-card" data-category="${product.category}" data-price="${product.price}">
+                    <div class="product-image" style="background-image: url('${product.image}');">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">${product.name}</h5>
+                        <p class="card-text">${product.description}</p>
+                        <div class="card-footer-content">
+                            <div class="price-section">
+                                <span class="original-price">$${product.originalPrice.toFixed(2)}</span>
+                                <div class="current-price-row">
+                                    <span class="price-tag">$${product.price.toFixed(2)}</span>
+                                    <span class="savings-badge">Save $${product.savings.toFixed(0)}!</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary-custom btn-sm btn-block mt-2" onclick="addToCart('${product.name}', ${product.price}, '${product.image}')">
+                                Add To Basket
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+            
+            // Update results count
+            document.getElementById('resultsCount').textContent = `Showing ${productsToShow.length} of ${filteredProducts.length} products`;
+            
+            // Show/hide load more button
+            const loadMoreBtn = document.getElementById('loadMoreBtn');
+            loadMoreBtn.style.display = displayedProducts >= filteredProducts.length ? 'none' : 'block';
+        }
+
+        function applyFilters() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const categoryFilter = document.getElementById('categoryFilter').value;
+            const priceFilter = document.getElementById('priceFilter').value;
+
+            filteredProducts = products.filter(product => {
+                const matchesSearch = product.name.toLowerCase().includes(searchTerm) || 
+                                    product.description.toLowerCase().includes(searchTerm);
+                
+                const matchesCategory = !categoryFilter || product.category === categoryFilter;
+                
+                let matchesPrice = true;
+                if (priceFilter) {
+                    const price = product.price;
+                    switch(priceFilter) {
+                        case '0-15':
+                            matchesPrice = price < 15;
+                            break;
+                        case '15-25':
+                            matchesPrice = price >= 15 && price < 25;
+                            break;
+                        case '25-35':
+                            matchesPrice = price >= 25 && price < 35;
+                            break;
+                        case '35+':
+                            matchesPrice = price >= 35;
+                            break;
+                    }
+                }
+                
+                return matchesSearch && matchesCategory && matchesPrice;
+            });
+
+            displayedProducts = 6;
+            renderProducts();
+        }
+
+        function clearAllFilters() {
+            document.getElementById('searchInput').value = '';
+            document.getElementById('categoryFilter').value = '';
+            document.getElementById('priceFilter').value = '';
+            filteredProducts = [...products];
+            displayedProducts = 6;
+            renderProducts();
+        }
+
+        function loadMoreProducts() {
+            displayedProducts += 6;
+            renderProducts();
+        }
+
+        function scrollToProducts() {
+            document.getElementById('productsGrid').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function proceedToCheckout() {
+            if (cart.length === 0) {
+                alert('Your cart is empty. Please add items before checkout.');
+                return;
+            }
+            
+            $('#basketModal').modal('hide');
+            window.location.href = 'checkout.html';
+        }
+
+        // Sort functionality
+        document.querySelectorAll('.sort-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                const sortType = this.dataset.sort;
+                
+                switch(sortType) {
+                    case 'price-low':
+                        filteredProducts.sort((a, b) => a.price - b.price);
+                        break;
+                    case 'price-high':
+                        filteredProducts.sort((a, b) => b.price - a.price);
+                        break;
+                    case 'savings':
+                        filteredProducts.sort((a, b) => b.savings - a.savings);
+                        break;
+                    default:
+                        filteredProducts = [...products];
+                }
+                
+                displayedProducts = 6;
+                renderProducts();
+            });
+        });
+
+        // Auto-filter on input
+        document.getElementById('searchInput').addEventListener('input', applyFilters);
+        document.getElementById('categoryFilter').addEventListener('change', applyFilters);
+        document.getElementById('priceFilter').addEventListener('change', applyFilters);
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCartCount();
+            renderProducts();
+        });
+    </script>
+</body>
+</html>

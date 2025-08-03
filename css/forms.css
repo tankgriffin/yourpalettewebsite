@@ -1,0 +1,125 @@
+/* Form and input styles */
+
+/* Quantity input */
+.quantity-input {
+    width: 60px;
+    text-align: center;
+    border: 2px solid var(--tan-light);
+    border-radius: 8px;
+    margin: 0 1rem;
+    padding: 0.5rem;
+}
+
+.quantity-selector {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+/* Blog search forms */
+.blog-search {
+    padding: 1rem 1.5rem;
+    padding-right: 3.5rem;
+    border: 3px solid var(--tan-light);
+    border-radius: 30px;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    height: 60px;
+    background: white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.blog-search:focus {
+    border-color: var(--tan-primary);
+    box-shadow: 0 0 0 0.3rem rgba(198, 156, 109, 0.25), 0 8px 25px rgba(0,0,0,0.15);
+    transform: translateY(-2px);
+}
+
+.search-icon {
+    position: absolute;
+    right: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--tan-primary);
+    font-size: 1.2rem;
+}
+
+.blog-filter {
+    padding: 1rem 1.5rem;
+    padding-right: 3.5rem;
+    border: 3px solid var(--tan-light);
+    border-radius: 30px;
+    font-size: 1.1rem;
+    background-color: white;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    height: 60px;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23C69C6D' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 1.5rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.blog-filter:focus {
+    border-color: var(--tan-primary);
+    box-shadow: 0 0 0 0.3rem rgba(198, 156, 109, 0.25), 0 8px 25px rgba(0,0,0,0.15);
+    outline: none;
+    transform: translateY(-2px);
+}
+
+/* Newsletter form */
+.newsletter-form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.newsletter-form .input-group {
+    border-radius: 50px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    height: 60px;
+}
+
+.newsletter-form .form-control {
+    border: none;
+    padding: 1.2rem 1.5rem;
+    font-size: 1.1rem;
+    background: white;
+    color: var(--charcoal);
+    height: 60px;
+    border-radius: 50px 0 0 50px;
+}
+
+.newsletter-form .form-control:focus {
+    box-shadow: none;
+    border-color: transparent;
+}
+
+.newsletter-form .input-group-append {
+    height: 60px;
+}
+
+.newsletter-form .btn {
+    border: none;
+    padding: 0 2rem;
+    font-weight: 700;
+    font-size: 1.1rem;
+    background: linear-gradient(135deg, var(--tan-primary), var(--tan-dark));
+    color: white;
+    height: 60px;
+    border-radius: 0 50px 50px 0;
+    line-height: 1;
+    transition: all 0.3s ease;
+}
+
+.newsletter-form .btn:hover {
+    background: linear-gradient(135deg, var(--tan-dark), #8B4513);
+    transform: translateX(-2px);
+}
+
+/* Search container */
+.search-container {
+    position: relative;
+}

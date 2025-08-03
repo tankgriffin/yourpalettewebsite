@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Palette - Premium Korean Makeup Tools</title>
+    
+    <!-- Bootstrap 4.6 CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Three.js for 3D -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    <style>
+        /* Your existing CSS variables */
+        :root {
+            --tan-primary: #C69C6D;
+            --tan-light: #E8DCC6;
+            --tan-dark: #A67C52;
+            --cream: #F5F5DC;
+            --charcoal: #2C2C2C;
+            --pink-accent: #FFB6C1;
+            --pink-dark: #FF69B4;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--cream);
+            color: var(--charcoal);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar-custom {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(198, 156, 109, 0.1);
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--tan-primary) !important;
+        }
+
+        .nav-link {
+            color: var(--charcoal) !important;
+            font-weight: 500;
+            font-size: 0.95rem;
+            margin: 0 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--tan-primary) !important;
+        }
+
+        /* Hero Section - Jeton Style */
+        .hero-section {
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 100px 0 0 0;
+            background-color: var(--cream);
+            overflow: hidden;
+        }
+
+        .hero-container {
+            position: relative;
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Left Side - Text Content */
+        .hero-text {
+            position: relative;
+            z-index: 10;
+            max-width: 600px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--tan-light) 0%, var(--tan-primary) 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-title {
+            font-size: 4.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            color: var(--charcoal);
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-title .highlight {
+            background: linear-gradient(135deg, var(--tan-primary) 0%, var(--tan-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 3rem;
+            max-width: 500px;
+        }
+
+        /* Right Side - 3D Product */
+        .hero-product {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 600px;
+            height: 500px;
+            z-index: 5;
+        }
+
+        .product-3d-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+        }
+
+        #canvas-3d {
+            border-radius: 0;
+            background: transparent;
+        }
+
+        /* Pink Stand - Extended to disappear into next section */
+        .pink-stand {
+            position: absolute;
+            bottom: -100px; /* Extend below the hero section */
+            right: 120px;
+            width: 200px;
+            height: 200px; /* Much taller to extend into next section */
+            background: linear-gradient(180deg, var(--pink-dark) 0%, var(--pink-accent) 30%, rgba(255, 105, 180, 0.5) 70%, transparent 100%);
+            border-radius: 50%;
+            box-shadow: 0 -20px 60px rgba(255, 105, 180, 0.4);
+            opacity: 0.8;
+            z-index: 1;
+        }
+
+        .pink-stand::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: 20px;
+            right: 20px;
+            height: 15px;
+            background: linear-gradient(135deg, rgba(255, 182, 193, 0.6) 0%, rgba(255, 105, 180, 0.6) 100%);
+            border-radius: 50%;
+            filter: blur(3px);
+        }
+
+        /* Additional stand glow effect */
+        .pink-stand::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            height: 150px;
+            background: radial-gradient(ellipse at center, rgba(255, 105, 180, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        /* CTAs Below Product */
+        .hero-ctas {
+            position: absolute;
+            bottom: 40px;
+            right: 60px;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            z-index: 10;
+        }
+
+        .cta-primary {
+            background: linear-gradient(135deg, var(--tan-primary) 0%, var(--tan-dark) 100%);
+            color: white;
+            border: none;
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(198, 156, 109, 0.3);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 200px;
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(198, 156, 109, 0.4);
+            color: white;
+            text-decoration: none;
+        }
+
+        .cta-secondary {
+            background: transparent;
+            color: var(--charcoal);
+            border: 2px solid var(--tan-light);
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 200px;
+        }
+
+        .cta-secondary:hover {
+            background: var(--tan-light);
+            color: var(--charcoal);
+            text-decoration: none;
+            transform: translateY(-1px);
+        }
+
+        /* Stats/Features */
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .stat-item {
+            text-align: left;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--tan-primary);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 0.5rem;
+        }
+
+        /* Loading Animation */
+        .loading-3d {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: var(--tan-primary);
+        }
+
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid var(--tan-light);
+            border-top: 3px solid var(--tan-primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Floating Animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .palette-float {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 1200px) {
+            .hero-product {
+                width: 500px;
+                height: 400px;
+            }
+            
+            .hero-ctas {
+                bottom: 20px;
+                right: 40px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 3.5rem;
+            }
+            
+            .hero-product {
+                position: relative;
+                width: 100%;
+                height: 400px;
+                margin-top: 3rem;
+            }
+            
+            .hero-ctas {
+                position: relative;
+                bottom: auto;
+                right: auto;
+                flex-direction: row;
+                justify-content: center;
+                margin-top: 2rem;
+            }
+            
+            .pink-stand {
+                right: 50%;
+                transform: translateX(50%);
+                bottom: -80px; /* Maintain the extending effect on mobile */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            .hero-ctas {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-primary,
+            .cta-secondary {
+                min-width: 250px;
+            }
+        }
+
+        /* Background Elements */
+        .bg-element {
+            position: absolute;
+            background: linear-gradient(135deg, var(--tan-light) 0%, rgba(198, 156, 109, 0.1) 100%);
+            border-radius: 50%;
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .bg-element-1 {
+            width: 300px;
+            height: 300px;
+            top: 10%;
+            right: 10%;
+        }
+
+        .bg-element-2 {
+            width: 200px;
+            height: 200px;
+            bottom: 20%;
+            left: 5%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light navbar-custom fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <i class="fas fa-palette"></i> Your Palette
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#products">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section - Jeton Style -->
+    <section id="home" class="hero-section">
+        <!-- Background Elements -->
+        <div class="bg-element bg-element-1"></div>
+        <div class="bg-element bg-element-2"></div>
+        
+        <div class="hero-container">
+            <!-- Left Side - Text Content -->
+            <div class="hero-text">
+                <div class="hero-badge">
+                    <i class="fas fa-star mr-2"></i>
+                    Professional Grade
+                </div>
+                
+                <h1 class="hero-title">
+                    Premium Korean<br>
+                    <span class="highlight">Makeup Tools</span>
+                </h1>
+                
+                <p class="hero-subtitle">
+                    Discover the professional-grade stainless steel mixing palette trusted by makeup artists worldwide. Perfect color mixing, ergonomic design, and Korean craftsmanship.
+                </p>
+                
+                <!-- Stats -->
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">10K+</span>
+                        <div class="stat-label">Happy Artists</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">4.9★</span>
+                        <div class="stat-label">Rating</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">50+</span>
+                        <div class="stat-label">Countries</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right Side - 3D Product -->
+            <div class="hero-product">
+                <div class="product-3d-container">
+                    <!-- Loading Animation -->
+                    <div class="loading-3d" id="loading3D">
+                        <div class="loading-spinner"></div>
+                        <p>Loading Product...</p>
+                    </div>
+                    
+                    <!-- 3D Canvas -->
+                    <canvas id="canvas-3d" style="display: none;"></canvas>
+                    
+                    <!-- Pink Stand -->
+                    <div class="pink-stand"></div>
+                </div>
+                
+                <!-- CTAs Below Product -->
+                <div class="hero-ctas">
+                    <a href="#products" class="cta-primary">
+                        Shop Now <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                    <a href="#demo" class="cta-secondary">
+                        <i class="fas fa-play mr-2"></i> Watch Demo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-5" style="background: #fafafa; position: relative; z-index: 10;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-4">
+                    <h3 style="color: var(--charcoal); font-weight: 700; margin-bottom: 1rem;">Why Professionals Choose Us</h3>
+                    <p style="color: #666; line-height: 1.6;">Our premium stainless steel palette delivers the precision and quality that makeup artists demand.</p>
+                </div>
+                <div class="col-lg-8">
+                    <div class="row">
+                        <div class="col-md-4 text-center mb-4">
+                            <i class="fas fa-gem" style="font-size: 2.5rem; color: var(--tan-primary); margin-bottom: 1rem;"></i>
+                            <h5>Premium Steel</h5>
+                            <p style="color: #666; font-size: 0.9rem;">Professional-grade stainless steel construction</p>
+                        </div>
+                        <div class="col-md-4 text-center mb-4">
+                            <i class="fas fa-palette" style="font-size: 2.5rem; color: var(--tan-primary); margin-bottom: 1rem;"></i>
+                            <h5>Perfect Mixing</h5>
+                            <p style="color: #666; font-size: 0.9rem;">Ideal surface for custom color creation</p>
+                        </div>
+                        <div class="col-md-4 text-center mb-4">
+                            <i class="fas fa-hand-holding" style="font-size: 2.5rem; color: var(--tan-primary); margin-bottom: 1rem;"></i>
+                            <h5>Ergonomic Design</h5>
+                            <p style="color: #666; font-size: 0.9rem;">Comfortable thumb cutout and rounded corners</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap 4.6 JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // 3D Scene Setup
+        let scene, camera, renderer, palette, stand;
+        let isRotating = true;
+        const canvas = document.getElementById('canvas-3d');
+        const loading = document.getElementById('loading3D');
+
+        // Initialize 3D Scene
+        function init3D() {
+            // Scene
+            scene = new THREE.Scene();
+            scene.background = null;
+
+            // Camera - positioned for bottom-right view
+            camera = new THREE.PerspectiveCamera(50, 600 / 500, 0.1, 1000);
+            camera.position.set(6, 4, 6);
+            camera.lookAt(0, 0, 0);
+
+            // Renderer
+            renderer = new THREE.WebGLRenderer({ 
+                canvas: canvas, 
+                antialias: true, 
+                alpha: true 
+            });
+            renderer.setSize(600, 500);
+            renderer.shadowMap.enabled = true;
+            renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+            renderer.outputEncoding = THREE.sRGBEncoding;
+
+            // Lighting
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+            scene.add(ambientLight);
+
+            const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+            directionalLight.position.set(10, 10, 5);
+            directionalLight.castShadow = true;
+            scene.add(directionalLight);
+
+            const fillLight = new THREE.DirectionalLight(0xffffff, 0.3);
+            fillLight.position.set(-5, 3, -5);
+            scene.add(fillLight);
+
+            // Create 3D Stand
+            createStand();
+
+            // Create Makeup Palette
+            createPalette();
+
+            // Add subtle mouse interaction
+            canvas.addEventListener('mouseenter', () => {
+                isRotating = false;
+            });
+            
+            canvas.addEventListener('mouseleave', () => {
+                isRotating = true;
+            });
+
+            // Start animation
+            animate();
+
+            // Hide loading, show canvas
+            setTimeout(() => {
+                loading.style.display = 'none';
+                canvas.style.display = 'block';
+            }, 1500);
+        }
+
+        function createStand() {
+            // 3D stand geometry
+            const standGeometry = new THREE.CylinderGeometry(1.8, 2.0, 0.2, 32);
+            const standMaterial = new THREE.MeshLambertMaterial({ 
+                color: 0xFF69B4,
+                transparent: true,
+                opacity: 0.8
+            });
+            
+            stand = new THREE.Mesh(standGeometry, standMaterial);
+            stand.position.y = -1.2;
+            stand.receiveShadow = true;
+            scene.add(stand);
+        }
+
+        function createPalette() {
+            const paletteGroup = new THREE.Group();
+
+            // Create rounded rectangle shape for palette
+            const shape = new THREE.Shape();
+            const width = 3;
+            const height = 2;
+            const radius = 0.6;
+
+            // Draw rounded rectangle
+            shape.moveTo(-width + radius, -height);
+            shape.lineTo(width - radius, -height);
+            shape.quadraticCurveTo(width, -height, width, -height + radius);
+            shape.lineTo(width, height - radius);
+            shape.quadraticCurveTo(width, height, width - radius, height);
+            shape.lineTo(-width + radius, height);
+            shape.quadraticCurveTo(-width, height, -width, height - radius);
+            shape.lineTo(-width, -height + radius);
+            shape.quadraticCurveTo(-width, -height, -width + radius, -height);
+
+            // Extrude settings
+            const extrudeSettings = {
+                depth: 0.12,
+                bevelEnabled: true,
+                bevelSegments: 6,
+                steps: 2,
+                bevelSize: 0.02,
+                bevelThickness: 0.01
+            };
+
+            const paletteGeometry = new THREE.ExtrudeGeometry(shape, extrudeSettings);
+            
+            // Stainless steel material
+            const paletteMaterial = new THREE.MeshStandardMaterial({
+                color: 0xCCCCCC,
+                metalness: 0.9,
+                roughness: 0.1,
+                envMapIntensity: 1.0
+            });
+
+            const paletteBody = new THREE.Mesh(paletteGeometry, paletteMaterial);
+            paletteBody.castShadow = true;
+            paletteBody.receiveShadow = true;
+            paletteGroup.add(paletteBody);
+
+            // Black O-ring for thumb cutout
+            const oringGeometry = new THREE.TorusGeometry(0.3, 0.06, 8, 16);
+            const oringMaterial = new THREE.MeshLambertMaterial({ color: 0x222222 });
+            
+            const oring = new THREE.Mesh(oringGeometry, oringMaterial);
+            oring.position.set(1.8, 0, 0.12);
+            oring.rotation.x = Math.PI / 2;
+            paletteGroup.add(oring);
+
+            // Position above stand
+            paletteGroup.position.y = 0;
+            paletteGroup.castShadow = true;
+            
+            palette = paletteGroup;
+            scene.add(palette);
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+
+            // Rotate palette
+            if (isRotating && palette) {
+                palette.rotation.y += 0.008;
+            }
+
+            // Subtle floating
+            if (palette) {
+                palette.position.y = Math.sin(Date.now() * 0.001) * 0.05;
+            }
+
+            // Rotate stand slightly
+            if (stand) {
+                stand.rotation.y += 0.002;
+            }
+
+            renderer.render(scene, camera);
+        }
+
+        // Handle responsive resize
+        function handleResize() {
+            const container = document.querySelector('.product-3d-container');
+            if (container && renderer && camera) {
+                const width = container.offsetWidth;
+                const height = container.offsetHeight;
+                
+                camera.aspect = width / height;
+                camera.updateProjectionMatrix();
+                renderer.setSize(width, height);
+            }
+        }
+
+        window.addEventListener('resize', handleResize);
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Initialize when page loads
+        window.addEventListener('load', () => {
+            init3D();
+        });
+    </script>
+</body>
+</html>

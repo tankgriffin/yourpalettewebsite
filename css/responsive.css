@@ -1,0 +1,320 @@
+/* Responsive design media queries */
+
+/* Mobile Responsive for Enhanced Header & Footer */
+@media (max-width: 991.98px) {
+    .navbar-custom {
+        padding: 0.5rem 0;
+    }
+    
+    .navbar-custom .container {
+        padding-left: 15px;
+        padding-right: 30px;
+    }
+    
+    .navbar-brand {
+        font-size: 1.6rem;
+    }
+    
+    .navbar-toggler {
+        border: none;
+        padding: 0.25rem 0.5rem;
+        margin-right: 10px;
+    }
+    
+    .navbar-toggler:focus {
+        box-shadow: none;
+    }
+    
+    .navbar-collapse {
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(198, 156, 109, 0.2);
+    }
+    
+    .navbar-nav.mx-auto {
+        margin-bottom: 1rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid rgba(198, 156, 109, 0.2);
+    }
+    
+    .navbar-nav.ml-auto {
+        justify-content: center;
+        margin-top: 0.5rem;
+        padding-right: 0;
+        margin-right: 0;
+    }
+    
+    .nav-link {
+        font-size: 0.9rem;
+        padding: 0.75rem 1rem !important;
+        margin: 0.25rem 0;
+        text-align: center;
+        border-radius: 8px;
+    }
+    
+    .navbar-nav {
+        text-align: center;
+    }
+    
+    .nav-item {
+        margin: 0.25rem 0.5rem;
+        width: auto;
+    }
+    
+    /* Icon navigation styling */
+    .navbar-nav.ml-auto .nav-item {
+        display: inline-block;
+        margin: 0 0.5rem;
+        position: relative;
+    }
+    
+    .navbar-nav.ml-auto .nav-link {
+        padding: 0.5rem !important;
+        margin: 0;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.1rem;
+        position: relative;
+        overflow: visible;
+    }
+    
+    .navbar-nav.ml-auto .basket-count {
+        top: -8px;
+        right: -8px;
+        position: absolute;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-custom .container {
+        padding-left: 15px;
+        padding-right: 35px;
+    }
+    
+    .navbar-brand {
+        font-size: 1.4rem;
+    }
+    
+    .nav-link {
+        font-size: 0.85rem;
+        padding: 0.5rem 0.75rem !important;
+        margin: 0.2rem 0;
+    }
+    
+    .navbar-nav.ml-auto {
+        padding-right: 5px;
+    }
+    
+    .navbar-nav.ml-auto .nav-link {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+        overflow: visible;
+        position: relative;
+    }
+    
+    .navbar-nav.ml-auto .basket-count {
+        top: -6px;
+        right: -6px;
+        width: 20px;
+        height: 20px;
+        font-size: 0.7rem;
+    }
+    
+    /* Footer Mobile */
+    footer {
+        padding: 3rem 0 1.5rem 0;
+        text-align: center;
+    }
+    
+    .social-icons {
+        justify-content: center;
+        margin-top: 1.5rem;
+    }
+    
+    .footer-links {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    footer .col-md-6 {
+        text-align: center !important;
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar-custom {
+        padding: 0.25rem 0;
+    }
+    
+    .navbar-custom .container {
+        padding-left: 10px;
+        padding-right: 40px;
+    }
+    
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+    
+    .navbar-toggler {
+        margin-right: 15px;
+    }
+    
+    .nav-link {
+        font-size: 0.8rem;
+        letter-spacing: 0.3px;
+        padding: 0.4rem 0.6rem !important;
+    }
+    
+    .navbar-nav.ml-auto {
+        padding-right: 10px;
+    }
+    
+    .navbar-nav.ml-auto .nav-link {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+        overflow: visible;
+        position: relative;
+    }
+    
+    .navbar-nav.ml-auto .basket-count {
+        width: 18px;
+        height: 18px;
+        font-size: 0.65rem;
+        top: -5px;
+        right: -5px;
+        position: absolute;
+    }
+    
+    .social-icons i {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .page-content {
+        padding-top: 120px;
+    }
+    
+    .soko-hero {
+        padding: 5rem 0;
+        min-height: 50vh;
+    }
+    
+    .soko-hero h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .soko-hero .lead {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .blog-hero {
+        padding: 5rem 0;
+        min-height: 40vh;
+    }
+    
+    .blog-hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .blog-hero p {
+        font-size: 1.2rem;
+    }
+    
+    /* Reduce section padding on mobile */
+    .py-5 {
+        padding-top: 3rem !important;
+        padding-bottom: 3rem !important;
+    }
+    
+    /* Better mobile spacing for cards */
+    .product-image-section {
+        padding: 2rem;
+    }
+    
+    .product-info {
+        padding: 2rem;
+    }
+    
+    .featured-post-image {
+        height: 250px;
+        min-height: 250px;
+    }
+    
+    .featured-post-content {
+        padding: 1.5rem;
+    }
+    
+    .post-title {
+        font-size: 1.5rem;
+    }
+    
+    .blog-post-content .post-title {
+        font-size: 1.1rem;
+    }
+    
+    .post-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .post-actions {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .social-share {
+        justify-content: center;
+        margin-top: 1rem;
+    }
+    
+    .newsletter-form .input-group {
+        flex-direction: column;
+        height: auto;
+        border-radius: 15px;
+    }
+    
+    .newsletter-form .form-control {
+        border-radius: 15px;
+        margin-bottom: 1rem;
+        height: 50px;
+    }
+    
+    .newsletter-form .input-group-append {
+        height: auto;
+    }
+    
+    .newsletter-form .btn {
+        width: 100%;
+        border-radius: 15px;
+        height: 50px;
+    }
+}
+
+@media (max-width: 1150px) {
+    .navbar-brand {
+        font-size: 1.5rem;
+    }
+    .navbar-nav.mx-auto .nav-link {
+        font-size: 0.9rem;
+        padding-left: 0.4rem;
+        padding-right: 0.4rem;
+    }
+    .navbar-nav.ml-auto .nav-link {
+        font-size: 1.1rem;
+    }
+}

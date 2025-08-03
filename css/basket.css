@@ -1,0 +1,139 @@
+/* Apple Glass Shopping Basket Styles */
+
+/* Floating basket icon with glassmorphism */
+.basket-icon {
+    position: fixed;
+    bottom: 10%;
+    right: 30px;
+    background: rgba(198, 156, 109, 0.2);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--tan-primary);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 
+        0 8px 32px rgba(31, 38, 135, 0.15),
+        0 2px 8px rgba(31, 38, 135, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 1000;
+    position: relative;
+    overflow: hidden;
+}
+
+.basket-icon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.1) 0%,
+        transparent 50%,
+        rgba(0, 0, 0, 0.05) 100%);
+    border-radius: 50%;
+}
+
+.basket-icon:hover {
+    background: rgba(198, 156, 109, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transform: scale(1.1) translateY(-2px);
+    box-shadow: 
+        0 12px 40px rgba(31, 38, 135, 0.25),
+        0 4px 15px rgba(198, 156, 109, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+/* Basket count badge */
+.basket-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: #dc3545;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+    z-index: 10;
+    overflow: visible;
+}
+
+/* Navbar specific basket count positioning */
+.navbar-nav .basket-count {
+    top: -8px;
+    right: -8px;
+    width: 22px;
+    height: 22px;
+    font-size: 0.75rem;
+}
+
+/* Glass Modal Styling */
+.modal-content {
+    background: rgba(255, 255, 255, 0.15) !important;
+    backdrop-filter: blur(40px) !important;
+    -webkit-backdrop-filter: blur(40px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 20px !important;
+    box-shadow: 
+        0 20px 60px rgba(31, 38, 135, 0.2),
+        0 8px 32px rgba(31, 38, 135, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+    overflow: hidden;
+    position: relative;
+}
+
+.modal-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(255, 255, 255, 0.4) 50%, 
+        transparent 100%);
+    z-index: 1;
+}
+
+.modal-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    background: rgba(255, 255, 255, 0.05);
+    position: relative;
+    z-index: 2;
+}
+
+.modal-header .modal-title {
+    color: var(--charcoal) !important;
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+.modal-body {
+    color: var(--charcoal) !important;
+    position: relative;
+    z-index: 2;
+}
+
+.modal-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+    background: rgba(255, 255, 255, 0.05);
+    position: relative;
+    z-index: 2;
+}
+
+.modal-backdrop {
+    background-color: rgba(198, 156, 109, 0.3) !important;
+}

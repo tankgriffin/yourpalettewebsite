@@ -1,0 +1,8 @@
+/* CSS Custom Properties (Variables) */
+:root {
+    --tan-primary: #C69C6D;
+    --tan-light: #E8DCC6;
+    --tan-dark: #A67C52;
+    --cream: #F5F5DC;
+    --charcoal: #2C2C2C;
+}

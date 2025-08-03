@@ -1,0 +1,48 @@
+/* Utility classes */
+
+/* Stock status utilities */
+.stock-status {
+    color: #28a745;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.stock-status.low-stock {
+    color: #ffc107;
+}
+
+.stock-status.out-of-stock {
+    color: #dc3545;
+}
+
+/* Features list utility */
+.features-list {
+    list-style: none;
+    padding: 0;
+}
+
+.features-list li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--tan-light);
+}
+
+.features-list li:last-child {
+    border-bottom: none;
+}
+
+.features-list i {
+    color: var(--tan-primary);
+    margin-right: 0.5rem;
+}
+
+/* Category icons */
+.category-icon {
+    font-size: 3rem;
+    color: var(--tan-primary);
+    margin-bottom: 1rem;
+}
+
+/* Hide icons when background images are present */
+.product-image i {
+    display: none;
+}

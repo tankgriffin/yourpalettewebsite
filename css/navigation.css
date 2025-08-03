@@ -1,0 +1,160 @@
+/* Navigation and Header styles */
+
+/* Apple Glass Navigation Styles */
+.navbar-custom {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: fixed;
+    width: 100%;
+    z-index: 1030;
+    top: 0;
+    overflow: visible;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 
+        0 4px 24px rgba(31, 38, 135, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.navbar-scrolled {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    box-shadow: 
+        0 8px 32px rgba(31, 38, 135, 0.15),
+        0 2px 8px rgba(31, 38, 135, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.navbar-logo {
+    height: 90px;
+    width: auto;
+}
+
+.navbar-custom .container {
+    display: flex;
+    align-items: center;
+    overflow: visible;
+    padding-left: 15px;
+    padding-right: 25px;
+    max-width: 100%;
+}
+
+.navbar-nav.ml-auto {
+    margin-right: 0;
+    padding-right: 10px;
+}
+
+.navbar-toggler {
+    border: 1px solid rgba(198, 156, 109, 0.3);
+    padding: 0.25rem 0.5rem;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28198, 156, 109, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar-collapse {
+    overflow: visible;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 2rem;
+    background: linear-gradient(135deg, var(--tan-primary), #d4a574, var(--tan-dark));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.navbar-brand:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+.navbar-brand i {
+    background: linear-gradient(135deg, var(--tan-primary), #d4a574);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-right: 0.5rem;
+    animation: gentle-pulse 3s ease-in-out infinite;
+}
+
+@keyframes gentle-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.navbar-nav {
+    align-items: center;
+}
+
+.nav-item {
+    margin: 0 0.5rem;
+    position: relative;
+}
+
+.nav-link {
+    color: var(--charcoal) !important;
+    font-weight: 600;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 0.75rem 1.25rem !important;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(198, 156, 109, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.nav-link:hover::before {
+    left: 100%;
+}
+
+.nav-link:hover {
+    color: var(--tan-primary) !important;
+    background: linear-gradient(135deg, rgba(198, 156, 109, 0.1), rgba(232, 220, 198, 0.2));
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(198, 156, 109, 0.2);
+}
+
+.nav-item.active .nav-link,
+.nav-link.active {
+    background: linear-gradient(135deg, var(--tan-primary), var(--tan-dark));
+    color: white !important;
+    box-shadow: 0 4px 15px rgba(198, 156, 109, 0.3);
+}
+
+.nav-item.active .nav-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(198, 156, 109, 0.4);
+}
+
+/* Breadcrumb */
+.breadcrumb-custom {
+    background-color: transparent;
+    padding: 1rem 0;
+}
+
+.breadcrumb-custom .breadcrumb-item a {
+    color: var(--tan-primary);
+    text-decoration: none;
+}

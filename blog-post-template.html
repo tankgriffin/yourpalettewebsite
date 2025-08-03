@@ -24,14 +24,24 @@
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/utilities.css">
+    <link rel="stylesheet" href="css/navigation.css">
+    <link rel="stylesheet" href="css/buttons.css">
+    <link rel="stylesheet" href="css/cards.css">
+    <link rel="stylesheet" href="css/forms.css">
+    <link rel="stylesheet" href="css/basket.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/blog.css">
+    <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <i class="fas fa-palette"></i> Your Palette
+                <img src="img/yp-main-logo.png" alt="Your Palette Logo" class="navbar-logo">
             </a>
             
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
@@ -39,7 +49,7 @@
             </button>
             
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="index.html">Home</a>
                     </li>
@@ -57,6 +67,23 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-search"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="far fa-user"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="far fa-heart"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#basketModal">
+                            <i class="fas fa-shopping-basket"></i>
+                            <span class="basket-count" id="basketCount">0</span>
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -168,7 +195,7 @@
     <!-- Floating Basket Icon -->
     <div class="basket-icon" data-toggle="modal" data-target="#basketModal">
         <i class="fas fa-shopping-basket"></i>
-        <span class="basket-count" id="basketCount">0</span>
+        <span class="basket-count" id="basketCountFloat">0</span>
     </div>
 
     <!-- Basket Modal -->
@@ -280,6 +307,7 @@
         // Basket functionality
         function updateBasketDisplay() {
             document.getElementById('basketCount').textContent = basketCount;
+            document.getElementById('basketCountFloat').textContent = basketCount;
             document.getElementById('basketTotal').textContent = basketTotal.toFixed(2);
             
             const basketItemsDiv = document.getElementById('basketItems');
@@ -320,6 +348,9 @@
             localStorage.setItem('basketItems', JSON.stringify(basketItems));
             updateBasketDisplay();
         }
+
+        // Initialize basket display on page load
+        updateBasketDisplay();
     </script>
 </body>
 </html>

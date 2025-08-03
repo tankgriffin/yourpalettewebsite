@@ -1,0 +1,103 @@
+/* Base styles and typography - Branded Glass Aesthetic */
+
+/* Remove section dividers - seamless color transitions */
+section {
+    border: none !important;
+    margin: 0 !important;
+}
+
+/* Ensure sections connect seamlessly */
+.py-5 {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+}
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(135deg, 
+        var(--cream) 0%, 
+        #f8f5f0 30%, 
+        #f0ead8 60%, 
+        #e8dcc6 100%);
+    background-attachment: fixed;
+    color: var(--charcoal);
+    min-height: 100vh;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(198, 156, 109, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(232, 220, 198, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(166, 124, 82, 0.1) 0%, transparent 50%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Global section spacing improvements with glass backdrop */
+section {
+    position: relative;
+}
+
+section:not(:first-of-type) {
+    margin-top: 2rem;
+}
+
+/* Glass section backgrounds */
+section.bg-light {
+    background: rgba(255, 255, 255, 0.25) !important;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Improved spacing for main content sections */
+.py-5 {
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
+}
+
+/* Better spacing for containers following hero sections */
+.hero-content + .container,
+.soko-hero + .container,
+.blog-hero + .container {
+    margin-top: 3rem;
+}
+
+/* Page Content Padding */
+.page-content {
+    padding-top: 140px;
+    padding-bottom: 3rem;
+}
+
+/* Special handling for product details page */
+.container.page-content {
+    padding-top: 140px;
+    padding-bottom: 3rem;
+}
+
+/* Ensure sections after page-content have proper spacing */
+.page-content + section,
+.page-content + .container {
+    margin-top: 3rem;
+}
+
+/* General typography */
+.section-title {
+    color: var(--charcoal);
+    font-weight: 700;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.price-tag {
+    color: var(--tan-primary);
+    font-weight: 700;
+    font-size: 1.1rem;
+}

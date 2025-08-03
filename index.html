@@ -3,21 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Palette - Premium Korean Makeup Tools</title>
+    <title>Korean Beauty Tools Australia | 50% Less Than BONIIK | Your Palette</title>
+    <meta name="description" content="Authentic Korean makeup tools at 50% less than competitors. Free expert tutorials included. Fast Aussie shipping. Trusted by 15,000+ Australian women. Start your K-beauty journey today!">
+    
+    <!-- Schema Markup for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Your Palette",
+        "description": "Australia's most affordable Korean beauty tools retailer with free expert tutorials",
+        "url": "https://yourpalette.com.au",
+        "telephone": "+61-2-9999-9999",
+        "email": "hello@yourpalette.com.au",
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "AU",
+            "addressRegion": "NSW",
+            "addressLocality": "Sydney"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "15000"
+        },
+        "priceRange": "$12.50 - $24.99",
+        "image": "https://yourpalette.com.au/img/yp-main-logo.png"
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Your Palette",
+        "url": "https://yourpalette.com.au",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://yourpalette.com.au/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
     
     <!-- Bootstrap 4.6 CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Three.js for 3D -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- GLTFLoader for loading .glb files -->
+    <script src="https://threejs.org/examples/js/loaders/GLTFLoader.js"></script>
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/utilities.css">
+    <link rel="stylesheet" href="css/navigation.css">
+    <link rel="stylesheet" href="css/buttons.css">
+    <link rel="stylesheet" href="css/cards.css">
+    <link rel="stylesheet" href="css/basket.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
+    <nav class="navbar navbar-expand-xl navbar-light navbar-custom">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <i class="fas fa-palette"></i> Your Palette
+                <img src="img/yp-main-logo.png" alt="Your Palette Logo" class="navbar-logo">
             </a>
             
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
@@ -30,7 +84,7 @@
                         <a class="nav-link" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#categories">Categories</a>
+                        <a class="nav-link" href="categories.html">Categories</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#featured">Featured</a>
@@ -66,16 +120,78 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <div class="soko-hero">
-        <div class="container text-center">
-            <h1 class="display-4">Best in K-Beauty</h1>
-            <p class="lead">Stay protected with our top-selling Korean sunscreens—your summer glow starts here.</p>
-            <a class="btn btn-primary-custom btn-lg" href="#featured" role="button">
-                Shop Sunscreens
-            </a>
+    <!-- Modern Hero Section -->
+    <section id="home" class="hero-section">
+        <!-- Background Elements -->
+        <div class="bg-element bg-element-1"></div>
+        <div class="bg-element bg-element-2"></div>
+        
+        <div class="hero-container">
+            <!-- Left Side - Text Content -->
+            <div class="hero-text">
+                <div class="hero-badge">
+                    <i class="fas fa-heart mr-2"></i>
+                    Trusted by 15,000+ Aussie Women
+                </div>
+                
+                <h1 class="hero-title">
+                    Master K-Beauty Techniques<br>
+                    <span class="highlight">Without Breaking the Bank</span>
+                </h1>
+                
+                <p class="hero-subtitle">
+                    Get authentic Korean makeup tools at 50% less than competitors, plus free expert tutorials that actually work. Start your glass skin journey today - your wallet will thank you.
+                </p>
+                
+                <!-- Stats -->
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">15K+</span>
+                        <div class="stat-label">Aussie Customers</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">4.9★</span>
+                        <div class="stat-label">Average Rating</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">50%</span>
+                        <div class="stat-label">Less Than Competitors</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right Side - 3D Product -->
+            <div class="hero-product">
+                <div class="product-3d-container">
+                    <!-- Loading Animation -->
+                    <div class="loading-3d" id="loading3D">
+                        <div class="loading-spinner"></div>
+                        <p>Loading Product...</p>
+                    </div>
+                    
+                    <!-- 3D Canvas -->
+                    <canvas id="canvas-3d" style="display: none;"></canvas>
+                    
+                    <!-- Pink Cylinder -->
+                    <div class="pink-cylinder"></div>
+                </div>
+                
+                <!-- CTAs Below Product -->
+                <div class="hero-ctas">
+                    <a href="#featured" class="cta-primary">
+                        Get MY Tools Now <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                    <a href="categories.html" class="cta-secondary">
+                        <i class="fas fa-search mr-2"></i> Browse All Categories
+                    </a>
+                </div>
+                <div class="urgency-message">
+                    <i class="fas fa-clock mr-2"></i>
+                    <span>Free shipping ends this week - Over 200 Aussie women joined yesterday!</span>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
 
     <!-- Success Alert (initially hidden) -->
     <div class="container mt-3">
@@ -149,6 +265,73 @@
     </section>
 
     <!-- Featured Products Section -->
+    <!-- Social Proof Section -->
+    <section class="py-5 bg-white">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-12 mb-4">
+                    <h2 class="section-title">Trusted by 15,000+ Australian Women</h2>
+                    <p class="text-muted">See why smart shoppers choose Your Palette over expensive competitors</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="testimonial-card">
+                        <div class="stars mb-2">★★★★★</div>
+                        <p>"Finally found authentic Korean tools at prices that don't break the bank! The tutorials are amazing too."</p>
+                        <div class="testimonial-author">
+                            <strong>Sarah M.</strong><br>
+                            <small>Sydney, NSW</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="testimonial-card">
+                        <div class="stars mb-2">★★★★★</div>
+                        <p>"Saved over $200 compared to BONIIK. Same quality, half the price. Will never shop elsewhere!"</p>
+                        <div class="testimonial-author">
+                            <strong>Emma L.</strong><br>
+                            <small>Melbourne, VIC</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="testimonial-card">
+                        <div class="stars mb-2">★★★★★</div>
+                        <p>"Perfect for uni students! Great quality tools and the free tutorials helped me master glass skin."</p>
+                        <div class="testimonial-author">
+                            <strong>Chloe K.</strong><br>
+                            <small>Brisbane, QLD</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Trust Badges -->
+            <div class="row justify-content-center mt-4">
+                <div class="col-12 text-center">
+                    <div class="trust-badges">
+                        <div class="trust-badge">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Secure Checkout</span>
+                        </div>
+                        <div class="trust-badge">
+                            <i class="fas fa-shipping-fast"></i>
+                            <span>Free Aussie Shipping</span>
+                        </div>
+                        <div class="trust-badge">
+                            <i class="fas fa-undo"></i>
+                            <span>30-Day Returns</span>
+                        </div>
+                        <div class="trust-badge">
+                            <i class="fas fa-award"></i>
+                            <span>100% Authentic</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="featured" class="py-5 bg-light">
         <div class="container">
             <h2 class="section-title">Featured Products</h2>
@@ -161,9 +344,15 @@
                         <div class="card-body">
                             <h5 class="card-title">Makeup Mixing Palette</h5>
                             <p class="card-text">Professional stainless steel palette for color mixing</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <span class="price-tag">$18.99</span>
-                                <a href="product-details.html" class="btn btn-primary-custom btn-sm">View Details</a>
+                            <div class="card-footer-content">
+                                <div class="price-section">
+                                    <span class="original-price">$35.00</span>
+                                    <div class="current-price-row">
+                                        <span class="price-tag">$18.99</span>
+                                        <span class="savings-badge">Save $16!</span>
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary-custom btn-sm btn-block mt-2" onclick="addToBasket('Makeup Mixing Palette', 18.99, 'img/makeup-palette.jpg')">Add To Basket</button>
                             </div>
                         </div>
                     </div>
@@ -177,9 +366,15 @@
                         <div class="card-body">
                             <h5 class="card-title">Korean Spatula</h5>
                             <p class="card-text">Stainless Steel Spatula for smooth foundation application</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <span class="price-tag">$24.99</span>
-                                <button class="btn btn-primary-custom btn-sm" onclick="addToBasket('Korean Spatula', 24.99)">Add to Basket</button>
+                            <div class="card-footer-content">
+                                <div class="price-section">
+                                    <span class="original-price">$49.99</span>
+                                    <div class="current-price-row">
+                                        <span class="price-tag">$24.99</span>
+                                        <span class="savings-badge">Save $25!</span>
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary-custom btn-sm btn-block mt-2" onclick="addToBasket('Korean Spatula', 24.99, 'img/korean-spatula.jpg')">Add To Basket</button>
                             </div>
                         </div>
                     </div>
@@ -193,9 +388,15 @@
                         <div class="card-body">
                             <h5 class="card-title">Mini Palette</h5>
                             <p class="card-text">Miniature version of the infamous mixing palette</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <span class="price-tag">$12.50</span>
-                                <button class="btn btn-primary-custom btn-sm" onclick="addToBasket('Mini Palette', 12.50)">Add to Basket</button>
+                            <div class="card-footer-content">
+                                <div class="price-section">
+                                    <span class="original-price">$22.50</span>
+                                    <div class="current-price-row">
+                                        <span class="price-tag">$12.50</span>
+                                        <span class="savings-badge">Save $10!</span>
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary-custom btn-sm btn-block mt-2" onclick="addToBasket('Mini Palette', 12.50, 'img/mini-palette.jpg')">Add To Basket</button>
                             </div>
                         </div>
                     </div>
@@ -209,9 +410,15 @@
                         <div class="card-body">
                             <h5 class="card-title">Lip Kit</h5>
                             <p class="card-text">Lip pick with included spatula for easy application</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <span class="price-tag">$15.75</span>
-                                <button class="btn btn-primary-custom btn-sm" onclick="addToBasket('Lip Kit', 15.75)">Add to Basket</button>
+                            <div class="card-footer-content">
+                                <div class="price-section">
+                                    <span class="original-price">$28.75</span>
+                                    <div class="current-price-row">
+                                        <span class="price-tag">$15.75</span>
+                                        <span class="savings-badge">Save $13!</span>
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary-custom btn-sm btn-block mt-2" onclick="addToBasket('Lip Kit', 15.75, 'img/lip-kit.jpg')">Add To Basket</button>
                             </div>
                         </div>
                     </div>
@@ -220,11 +427,6 @@
         </div>
     </section>
 
-    <!-- Floating Basket Icon -->
-    <div class="basket-icon" data-toggle="modal" data-target="#basketModal">
-        <i class="fas fa-shopping-basket"></i>
-        <span class="basket-count" id="basketCount">0</span>
-    </div>
 
     <!-- Basket Modal -->
     <div class="modal fade" id="basketModal" tabindex="-1" role="dialog">
@@ -252,25 +454,127 @@
                             <strong>Total: $<span id="basketTotal">0.00</span></strong>
                         </div>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Continue Shopping</button>
-                        <button type="button" class="btn btn-primary-custom">Proceed to Checkout</button>
+                        <button type="button" class="btn btn-primary-custom" id="checkoutBtn" onclick="proceedToCheckout()">Proceed to Checkout</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- FAQ Section for Objection Handling -->
+    <section class="py-5" id="faq">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">Frequently Asked Questions</h2>
+                    <p class="text-muted">Everything you need to know about authentic Korean beauty tools</p>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion" id="faqAccordion">
+                        <!-- Question 1: Quality Concern -->
+                        <div class="card">
+                            <div class="card-header" id="faq1">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse1">
+                                        Are these tools really the same quality as expensive brands?
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapse1" class="collapse show" data-parent="#faqAccordion">
+                                <div class="card-body">
+                                    Absolutely! We source directly from the same Korean manufacturers that supply premium brands. The only difference is we cut out the middleman markups. Same stainless steel, same precision, 50% less cost.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Question 2: Shipping Concern -->
+                        <div class="card">
+                            <div class="card-header" id="faq2">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse2">
+                                        How fast is shipping within Australia?
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapse2" class="collapse" data-parent="#faqAccordion">
+                                <div class="card-body">
+                                    Free standard shipping takes 3-5 business days Australia-wide. Express shipping (1-2 days) available for $9.95. We ship from Melbourne and Sydney warehouses for faster delivery.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Question 3: Authenticity Concern -->
+                        <div class="card">
+                            <div class="card-header" id="faq3">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse3">
+                                        How do I know these are authentic Korean tools?
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapse3" class="collapse" data-parent="#faqAccordion">
+                                <div class="card-body">
+                                    Every tool comes with authenticity certificates. We have direct partnerships with Korean manufacturers and conduct quality inspections. Plus, 30-day money-back guarantee if you're not satisfied.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Question 4: Beginner Concern -->
+                        <div class="card">
+                            <div class="card-header" id="faq4">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse4">
+                                        I'm new to K-beauty. Will I know how to use these?
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapse4" class="collapse" data-parent="#faqAccordion">
+                                <div class="card-body">
+                                    Perfect! Every purchase includes free access to our step-by-step video tutorials. We'll teach you everything from basic application to advanced techniques. Plus, our blog has beginner-friendly guides.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Question 5: Value Concern -->
+                        <div class="card">
+                            <div class="card-header" id="faq5">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse5">
+                                        Why are your prices so much lower than other stores?
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapse5" class="collapse" data-parent="#faqAccordion">
+                                <div class="card-body">
+                                    We believe K-beauty shouldn't be exclusive to the wealthy. By selling online-only and sourcing directly from Korea, we eliminate store rents and distributor markups. You get authentic tools at fair prices.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center mt-4">
+                        <a href="#featured" class="btn btn-primary-custom btn-lg">
+                            Start MY K-Beauty Journey <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Enhanced Footer -->
     <footer>
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <h5><i class="fas fa-palette mr-2"></i>Your Palette</h5>
+                    <img src="img/yp-main-logo.png" alt="Your Palette Logo" class="mb-3" style="height: 50px;">
                     <p>Discover the art of Korean beauty with our premium makeup tools. Designed for the modern woman who values quality, precision, and the perfect glow.</p>
                     
                     <div class="footer-links">
-                        <a href="#categories" class="footer-link">Shop Tools</a>
+                        <a href="categories.html" class="footer-link">Shop Tools</a>
                         <a href="blog.html" class="footer-link">Beauty Tips</a>
-                        <a href="#featured" class="footer-link">New Arrivals</a>
+                        <a href="index.html#featured" class="footer-link">New Arrivals</a>
                         <a href="contact.html" class="footer-link">Contact</a>
                     </div>
                 </div>
@@ -288,37 +592,59 @@
             </div>
             <hr class="my-4">
             <div class="text-center">
-                <small>&copy; 2025 Your Palette. Crafted with 💝 for beauty lovers worldwide. All rights reserved.</small>
+                <small>&copy; 2024 Your Palette. All rights reserved.</small>
             </div>
         </div>
     </footer>
 
-    <!-- Bootstrap 4.6 JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.bundle.min.js"></script>
+    <!-- Mobile Sticky CTA (Thumb Zone Optimised) -->
+    <div class="mobile-sticky-cta d-lg-none">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-6">
+                    <button class="btn btn-outline-primary btn-block sticky-cta-btn" data-toggle="modal" data-target="#basketModal">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count-mobile" id="cartCountMobile">0</span>
+                    </button>
+                </div>
+                <div class="col-6">
+                    <a href="#featured" class="btn btn-primary-custom btn-block sticky-cta-btn">
+                        <i class="fas fa-heart"></i> Get MY Tools
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Enhanced Header Scroll Effect
+        // Enhanced header background change on scroll - check if hero section is still visible
         $(window).scroll(function() {
-            if ($(window).scrollTop() > 100) {
-                $('.navbar-custom').addClass('scrolled');
+            const heroSection = document.querySelector('.hero-section');
+            const heroHeight = heroSection ? heroSection.offsetHeight : 500;
+            
+            if ($(this).scrollTop() > heroHeight - 100) {
+                $('.navbar-custom').addClass('navbar-scrolled');
             } else {
-                $('.navbar-custom').removeClass('scrolled');
+                $('.navbar-custom').removeClass('navbar-scrolled');
             }
         });
     </script>
 
     <script>
         // Simple basket functionality
-        let basketItems = [];
-        let basketCount = 0;
-        let basketTotal = 0;
+        let basketItems = JSON.parse(localStorage.getItem('basketItems')) || [];
+        let basketCount = basketItems.reduce((sum, item) => sum + (item.quantity || 1), 0);
+        let basketTotal = basketItems.reduce((total, item) => total + item.price, 0);
 
         function addToBasket(productName, price) {
-            basketItems.push({name: productName, price: price});
-            basketCount++;
+            basketItems.push({name: productName, price: price, quantity: 1});
+            basketCount = basketItems.reduce((sum, item) => sum + (item.quantity || 1), 0);
             basketTotal += price;
             
+            localStorage.setItem('basketItems', JSON.stringify(basketItems));
             updateBasketDisplay();
             showSuccessAlert();
         }
@@ -326,6 +652,12 @@
         function updateBasketDisplay() {
             document.getElementById('basketCount').textContent = basketCount;
             document.getElementById('basketTotal').textContent = basketTotal.toFixed(2);
+            // Update mobile cart count
+            const mobileCartCount = document.getElementById('cartCountMobile');
+            if (mobileCartCount) {
+                mobileCartCount.textContent = basketCount;
+                mobileCartCount.style.display = basketCount > 0 ? 'flex' : 'none';
+            }
             
             const basketItemsDiv = document.getElementById('basketItems');
             if (basketItems.length === 0) {
@@ -359,7 +691,8 @@
         function removeFromBasket(index) {
             basketTotal -= basketItems[index].price;
             basketItems.splice(index, 1);
-            basketCount--;
+            basketCount = basketItems.reduce((sum, item) => sum + (item.quantity || 1), 0);
+            localStorage.setItem('basketItems', JSON.stringify(basketItems));
             updateBasketDisplay();
         }
 
@@ -370,6 +703,36 @@
                 alert.classList.remove('show');
             }, 3000);
         }
+
+        function proceedToCheckout() {
+            // Get current basket items
+            const basketItems = JSON.parse(localStorage.getItem('basketItems')) || [];
+            
+            if (basketItems.length === 0) {
+                alert('Your basket is empty. Please add items before checkout.');
+                return;
+            }
+            
+            // Convert basket format to cart format for checkout page
+            const cartItems = basketItems.map(item => ({
+                name: item.name,
+                price: item.price,
+                quantity: item.quantity,
+                image: item.image
+            }));
+            
+            // Store in cart format for checkout page
+            localStorage.setItem('cart', JSON.stringify(cartItems));
+            
+            // Close the modal
+            $('#basketModal').modal('hide');
+            
+            // Redirect to checkout page
+            window.location.href = 'checkout.html';
+        }
+
+        // Initialize basket display on page load
+        updateBasketDisplay();
 
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -383,6 +746,235 @@
                     });
                 }
             });
+        });
+    </script>
+
+    <script>
+        // 3D Scene Setup
+        let scene, camera, renderer, palette;
+        let isRotating = true;
+        const canvas = document.getElementById('canvas-3d');
+        const loading = document.getElementById('loading3D');
+
+        // Initialize 3D Scene
+        function init3D() {
+            // Scene
+            scene = new THREE.Scene();
+            scene.background = null;
+
+            // Camera - positioned for top-down 45° view to match cylinder
+            camera = new THREE.PerspectiveCamera(50, 600 / 500, 0.1, 1000);
+            camera.position.set(4, 6, 6);
+            camera.lookAt(0, 0, 0);
+
+            // Renderer
+            const container = document.querySelector('.product-3d-container');
+            const containerWidth = container ? container.offsetWidth : 600;
+            const containerHeight = container ? container.offsetHeight : 500;
+            
+            renderer = new THREE.WebGLRenderer({ 
+                canvas: canvas, 
+                antialias: true, 
+                alpha: true,
+                preserveDrawingBuffer: true
+            });
+            renderer.setSize(containerWidth, containerHeight);
+            renderer.shadowMap.enabled = true;
+            renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+            renderer.outputEncoding = THREE.sRGBEncoding;
+            renderer.setClearColor(0x000000, 0); // Transparent background
+            
+            console.log('Renderer initialized with size:', containerWidth, 'x', containerHeight);
+
+            // Lighting
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+            scene.add(ambientLight);
+
+            const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+            directionalLight.position.set(10, 10, 5);
+            directionalLight.castShadow = true;
+            scene.add(directionalLight);
+
+            const fillLight = new THREE.DirectionalLight(0xffffff, 0.3);
+            fillLight.position.set(-5, 3, -5);
+            scene.add(fillLight);
+
+            // Load custom GLB palette model
+            loadGLBPalette();
+
+            // Add subtle mouse interaction
+            canvas.addEventListener('mouseenter', () => {
+                isRotating = false;
+            });
+            
+            canvas.addEventListener('mouseleave', () => {
+                isRotating = true;
+            });
+
+            // Start animation
+            animate();
+
+            // Hide loading, show canvas
+            setTimeout(() => {
+                loading.style.display = 'none';
+                canvas.style.display = 'block';
+            }, 1500);
+        }
+
+
+        function loadGLBPalette() {
+            console.log('Attempting to load GLB palette...');
+            
+            // Check if GLTFLoader is available
+            if (typeof THREE.GLTFLoader === 'undefined') {
+                console.error('GLTFLoader not available, using fallback');
+                createFallbackPalette();
+                return;
+            }
+            
+            const loader = new THREE.GLTFLoader();
+            
+            loader.load(
+                './3d-palette.glb', // Try with explicit relative path
+                function (gltf) {
+                    console.log('GLB file loaded successfully!', gltf);
+                    
+                    // Successfully loaded the GLB file
+                    palette = gltf.scene;
+                    
+                    // Log model information
+                    console.log('Model bounding box:', new THREE.Box3().setFromObject(palette));
+                    
+                    // Enable shadows for all meshes in the model
+                    let meshCount = 0;
+                    palette.traverse(function (child) {
+                        if (child.isMesh) {
+                            child.castShadow = true;
+                            child.receiveShadow = true;
+                            meshCount++;
+                            console.log('Found mesh:', child.name || 'unnamed');
+                        }
+                    });
+                    console.log('Total meshes found:', meshCount);
+                    
+                    // Position and scale the palette to sit on cylinder surface
+                    palette.position.set(0, 0.8, 0);
+                    palette.rotation.set(-Math.PI / 12, 0, 0); // Slight tilt to match cylinder surface
+                    palette.scale.set(2, 2, 2); // Scale up the model to be more visible
+                    
+                    // Add to scene
+                    scene.add(palette);
+                    
+                    console.log('GLB palette added to scene successfully');
+                    console.log('Scene children count:', scene.children.length);
+                },
+                function (progress) {
+                    // Loading progress
+                    const percent = progress.total > 0 ? (progress.loaded / progress.total * 100) : 0;
+                    console.log('Loading progress:', percent.toFixed(1) + '%', 'loaded:', progress.loaded, 'total:', progress.total);
+                },
+                function (error) {
+                    // Error loading - fallback to basic geometry
+                    console.error('Error loading GLB file:', error);
+                    console.log('Using fallback palette instead...');
+                    createFallbackPalette();
+                }
+            );
+        }
+        
+        function createFallbackPalette() {
+            console.log('Creating fallback palette...');
+            
+            // Fallback palette in case GLB doesn't load
+            const paletteGroup = new THREE.Group();
+            
+            // Simple box geometry as fallback - make it more visible
+            const geometry = new THREE.BoxGeometry(2, 0.3, 1.5);
+            const material = new THREE.MeshStandardMaterial({
+                color: 0xFF6B6B, // Bright red for visibility
+                metalness: 0.5,
+                roughness: 0.2
+            });
+            
+            const paletteBody = new THREE.Mesh(geometry, material);
+            paletteBody.castShadow = true;
+            paletteBody.receiveShadow = true;
+            paletteGroup.add(paletteBody);
+            
+            // Add a small indicator cube
+            const indicatorGeometry = new THREE.BoxGeometry(0.2, 0.2, 0.2);
+            const indicatorMaterial = new THREE.MeshBasicMaterial({ color: 0x00FF00 });
+            const indicator = new THREE.Mesh(indicatorGeometry, indicatorMaterial);
+            indicator.position.set(0, 0.5, 0);
+            paletteGroup.add(indicator);
+            
+            // Position to sit on cylinder surface
+            paletteGroup.position.set(0, 0.8, 0);
+            paletteGroup.rotation.set(-Math.PI / 12, 0, 0);
+            
+            palette = paletteGroup;
+            scene.add(palette);
+            
+            console.log('Fallback palette created and added to scene');
+        }
+
+        let animationStarted = false;
+        
+        function animate() {
+            requestAnimationFrame(animate);
+            
+            if (!animationStarted) {
+                console.log('Animation loop started');
+                animationStarted = true;
+            }
+
+            // Rotate palette
+            if (isRotating && palette) {
+                palette.rotation.y += 0.008;
+            }
+
+            // Subtle floating while maintaining position on cylinder
+            if (palette) {
+                palette.position.y = 0.8 + Math.sin(Date.now() * 0.001) * 0.03;
+            }
+
+            renderer.render(scene, camera);
+        }
+
+        // Handle responsive resize
+        function handleResize() {
+            const container = document.querySelector('.product-3d-container');
+            if (container && renderer && camera) {
+                const width = container.offsetWidth;
+                const height = container.offsetHeight;
+                
+                camera.aspect = width / height;
+                camera.updateProjectionMatrix();
+                renderer.setSize(width, height);
+            }
+        }
+
+        window.addEventListener('resize', handleResize);
+
+        // Initialize when page loads
+        window.addEventListener('load', () => {
+            console.log('Page loaded, initializing 3D...');
+            init3D();
+        });
+        
+        // Also try to initialize after DOM is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('DOM ready, checking if 3D can initialize...');
+            if (typeof THREE !== 'undefined') {
+                console.log('Three.js is loaded');
+                if (typeof THREE.GLTFLoader !== 'undefined') {
+                    console.log('GLTFLoader is available');
+                } else {
+                    console.error('GLTFLoader is not available');
+                }
+            } else {
+                console.error('Three.js is not loaded');
+            }
         });
     </script>
 </body>

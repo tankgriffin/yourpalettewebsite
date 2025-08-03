@@ -1,0 +1,104 @@
+/* Apple Glass Button Styles */
+
+.btn-primary-custom {
+    background: rgba(198, 156, 109, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(198, 156, 109, 0.3);
+    color: var(--charcoal);
+    font-weight: 600;
+    padding: 12px 25px;
+    border-radius: 25px;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    margin-bottom: 0.5rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 
+        0 4px 20px rgba(198, 156, 109, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+.btn-primary-custom::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(255, 255, 255, 0.4) 50%, 
+        transparent 100%);
+}
+
+.btn-primary-custom:hover {
+    background: rgba(198, 156, 109, 0.25);
+    border: 1px solid rgba(198, 156, 109, 0.4);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 
+        0 8px 30px rgba(198, 156, 109, 0.3),
+        0 4px 15px rgba(198, 156, 109, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    color: var(--charcoal);
+}
+
+.btn-outline-custom {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: var(--charcoal);
+    font-weight: 600;
+    padding: 12px 30px;
+    border-radius: 25px;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 
+        0 2px 12px rgba(198, 156, 109, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.btn-outline-custom::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(255, 255, 255, 0.3) 50%, 
+        transparent 100%);
+}
+
+.btn-outline-custom:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    color: var(--charcoal);
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 
+        0 6px 20px rgba(198, 156, 109, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+/* Quantity selector buttons */
+.quantity-btn {
+    background-color: var(--tan-light);
+    border: none;
+    color: var(--charcoal);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.quantity-btn:hover {
+    background-color: var(--tan-primary);
+    color: white;
+}

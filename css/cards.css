@@ -1,0 +1,408 @@
+/* Glassmorphism Card Styles - Apple iPhone Aesthetic */
+
+.category-card,
+.product-card {
+    border: none;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 
+        0 8px 32px rgba(198, 156, 109, 0.2),
+        0 2px 8px rgba(198, 156, 109, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    margin-bottom: 2rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.category-card::before,
+.product-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(255, 255, 255, 0.4) 50%, 
+        transparent 100%);
+    z-index: 1;
+}
+
+.category-card:hover,
+.product-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    background: rgba(255, 255, 255, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 
+        0 20px 50px rgba(198, 156, 109, 0.3),
+        0 8px 32px rgba(198, 156, 109, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.category-card .card-body {
+    padding: 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.product-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card .card-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.product-card .card-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+}
+
+.product-card .card-text {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+}
+
+.product-card .card-footer-content {
+    margin-top: auto;
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.price-section {
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+
+.original-price {
+    font-size: 0.85rem;
+    color: #999;
+    text-decoration: line-through;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.current-price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+}
+
+.price-tag {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--tan-primary);
+}
+
+.savings-badge {
+    font-size: 0.65rem;
+    background: linear-gradient(135deg, #00b894, #00a085);
+    color: white;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+/* Prevent button transform when product card hovers, but allow button's own hover effects */
+.product-card:hover .btn:not(:hover) {
+    transform: none !important;
+}
+
+.category-card .card-title,
+.product-card .card-title {
+    color: var(--charcoal);
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+.category-card .card-text,
+.product-card .card-text {
+    color: rgba(44, 44, 44, 0.8);
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.2);
+}
+
+/* Glass Category Icons */
+.category-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 1.5rem;
+    box-shadow: 
+        0 8px 25px rgba(31, 38, 135, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+}
+
+.category-icon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.1) 0%,
+        transparent 50%,
+        rgba(0, 0, 0, 0.05) 100%);
+    border-radius: 50%;
+}
+
+.category-icon i {
+    font-size: 2rem;
+    color: var(--tan-primary);
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+.category-card:hover .category-icon {
+    transform: scale(1.1) translateY(-3px);
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 
+        0 12px 35px rgba(31, 38, 135, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.related-product-card {
+    border: none;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 
+        0 4px 20px rgba(31, 38, 135, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.related-product-card:hover {
+    transform: translateY(-8px) scale(1.01);
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 
+        0 12px 35px rgba(31, 38, 135, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+/* Glassmorphism Product Images */
+.product-image {
+    height: 180px;
+    background: linear-gradient(135deg, 
+        rgba(198, 156, 109, 0.3) 0%, 
+        rgba(232, 220, 198, 0.2) 50%,
+        rgba(198, 156, 109, 0.15) 100%);
+    border-radius: 20px 20px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 4rem;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.1) 0%,
+        transparent 50%,
+        rgba(0, 0, 0, 0.05) 100%);
+    z-index: 1;
+}
+
+.product-image i {
+    position: relative;
+    z-index: 2;
+    color: var(--tan-dark);
+    text-shadow: 0 2px 4px rgba(255, 255, 255, 0.3);
+}
+
+.related-product-image {
+    height: 150px;
+    background: linear-gradient(135deg, 
+        rgba(198, 156, 109, 0.25) 0%, 
+        rgba(232, 220, 198, 0.15) 50%,
+        rgba(198, 156, 109, 0.1) 100%);
+    border-radius: 16px 16px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 3rem;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.related-product-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.08) 0%,
+        transparent 50%,
+        rgba(0, 0, 0, 0.03) 100%);
+    z-index: 1;
+}
+
+.related-product-image i {
+    position: relative;
+    z-index: 2;
+    color: var(--tan-dark);
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.2);
+}
+
+/* Blog Cards */
+.blog-post-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.blog-post-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.post-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.blog-post-card:hover .post-overlay {
+    opacity: 1;
+}
+
+.blog-post-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-post-content .post-meta {
+    margin-bottom: 1rem;
+    font-size: 0.85rem;
+}
+
+.blog-post-content .post-title {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+}
+
+.blog-post-content .post-excerpt {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+/* Featured Post Card */
+.featured-post-card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(198, 156, 109, 0.1);
+}
+
+.featured-post-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 45px rgba(0,0,0,0.2);
+}
+
+.featured-post-image {
+    height: 100%;
+    min-height: 450px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.featured-badge {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    background: linear-gradient(135deg, var(--tan-primary), var(--tan-dark));
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.featured-post-content {
+    padding: 3rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
