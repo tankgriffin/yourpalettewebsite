@@ -1,0 +1,309 @@
+/* Sub-service pages specific styles - Seamless gradient system */
+
+/* Hero sections for sub-pages */
+.hero-section {
+    background: linear-gradient(180deg, 
+        rgba(245, 241, 232, 0.85) 0%,     /* Light overlay start */
+        rgba(240, 234, 216, 0.70) 25%,    /* Gradually fade */
+        rgba(237, 229, 211, 0.55) 50%,    /* Mid transparency */
+        rgba(232, 221, 199, 0.40) 75%,    /* More transparent */
+        rgba(227, 213, 187, 0.25) 100%    /* Almost transparent */
+    ) !important;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+/* Step cards and feature sections */
+.step-card {
+    background: rgba(255, 255, 255, 0.40);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    padding: 2rem;
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 25px rgba(198, 156, 109, 0.15);
+}
+
+.step-card:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.55);
+    box-shadow: 0 15px 40px rgba(198, 156, 109, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.step-number {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--tan-primary) 0%, var(--tan-dark) 100%);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 auto 1.5rem;
+    box-shadow: 0 8px 20px rgba(198, 156, 109, 0.3);
+}
+
+/* Trend and technique cards */
+.trend-card, .technique-card {
+    background: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 18px;
+    padding: 2rem;
+    transition: all 0.4s ease;
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    height: 100%;
+}
+
+.trend-card:hover, .technique-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.50);
+    box-shadow: 0 12px 30px rgba(198, 156, 109, 0.20);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.trend-icon, .technique-icon {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.40);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.trend-content, .technique-content {
+    flex: 1;
+}
+
+/* Feature lists in product cards */
+.feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.feature-list li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(198, 156, 109, 0.1);
+    font-size: 0.95rem;
+}
+
+.feature-list li:last-child {
+    border-bottom: none;
+}
+
+/* Comparison tables */
+.table-responsive .table {
+    background: rgba(255, 255, 255, 0.40);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.table thead th {
+    background: linear-gradient(135deg, var(--tan-primary) 0%, var(--tan-dark) 100%);
+    color: white;
+    border: none;
+    padding: 1.25rem;
+    font-weight: 600;
+}
+
+.table tbody td {
+    background: rgba(255, 255, 255, 0.30);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 1rem 1.25rem;
+    vertical-align: middle;
+}
+
+.table tbody tr:nth-child(even) td {
+    background: rgba(255, 255, 255, 0.20);
+}
+
+/* Hero stats improvements */
+.hero-stats .stat-item {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.hero-stats .stat-item:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.35);
+    box-shadow: 0 8px 20px rgba(198, 156, 109, 0.15);
+}
+
+/* Enhanced testimonials for sub-pages */
+.testimonial-card {
+    background: rgba(255, 255, 255, 0.45) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+    box-shadow: 0 8px 25px rgba(198, 156, 109, 0.15) !important;
+}
+
+.testimonial-card:hover {
+    background: rgba(255, 255, 255, 0.60) !important;
+    transform: translateY(-8px) !important;
+    box-shadow: 0 15px 35px rgba(198, 156, 109, 0.25) !important;
+}
+
+/* Product badges */
+.product-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: linear-gradient(135deg, var(--tan-primary) 0%, var(--tan-dark) 100%);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(198, 156, 109, 0.3);
+    z-index: 10;
+}
+
+/* Enhanced FAQ sections for sub-pages */
+.accordion .card {
+    background: rgba(255, 255, 255, 0.35) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    margin-bottom: 1.5rem !important;
+}
+
+.accordion .card:hover {
+    background: rgba(255, 255, 255, 0.50) !important;
+    transform: translateY(-5px) !important;
+    box-shadow: 0 12px 30px rgba(198, 156, 109, 0.20) !important;
+}
+
+.accordion .card-body {
+    background: rgba(255, 255, 255, 0.25) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+}
+
+/* Seamless section spacing for sub-pages */
+.sub-page section {
+    margin: 0 !important;
+    border: none !important;
+}
+
+.sub-page .py-5 {
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
+}
+
+/* Related categories section enhancement */
+.category-card {
+    background: rgba(255, 255, 255, 0.40) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    transition: all 0.4s ease !important;
+}
+
+.category-card:hover {
+    background: rgba(255, 255, 255, 0.55) !important;
+    transform: translateY(-8px) !important;
+    box-shadow: 0 15px 35px rgba(198, 156, 109, 0.20) !important;
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+}
+
+.category-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--tan-light) 0%, var(--tan-primary) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    box-shadow: 0 8px 20px rgba(198, 156, 109, 0.25);
+}
+
+.category-icon i {
+    font-size: 2rem;
+    color: white;
+}
+
+/* Smooth background transitions between sections */
+section.bg-light + section.bg-light {
+    background: linear-gradient(180deg,
+        rgba(255, 255, 255, 0.25) 0%,
+        rgba(255, 255, 255, 0.30) 50%,
+        rgba(255, 255, 255, 0.25) 100%
+    ) !important;
+}
+
+section:not(.bg-light) + section:not(.bg-light) {
+    background: linear-gradient(180deg,
+        rgba(255, 255, 255, 0.05) 0%,
+        rgba(255, 255, 255, 0.08) 50%,
+        rgba(255, 255, 255, 0.05) 100%
+    ) !important;
+}
+
+/* Hero image containers */
+.hero-image-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(198, 156, 109, 0.25);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.hero-image-container img {
+    transition: all 0.4s ease;
+}
+
+.hero-image-container:hover img {
+    transform: scale(1.05);
+}
+
+/* Enhanced breadcrumbs */
+.breadcrumb {
+    background: rgba(255, 255, 255, 0.25) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    border-radius: 15px !important;
+    padding: 1rem 1.5rem !important;
+}
+
+.breadcrumb-item a {
+    color: var(--tan-primary) !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease !important;
+}
+
+.breadcrumb-item a:hover {
+    color: var(--tan-dark) !important;
+    text-decoration: underline !important;
+}
+
+.breadcrumb-item.active {
+    color: var(--charcoal) !important;
+    font-weight: 600 !important;
+}

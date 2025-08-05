@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Makeup Mixing Palettes Australia | Korean Beauty Tools | Your Palette</title>
+    <meta name="description" content="Professional makeup mixing palettes from Korea. Stainless steel, hygienic design. 50% less than competitors. Free shipping Australia-wide. Perfect for pros and beginners.">
+    
+    <!-- Schema Markup for Service Page -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Korean Makeup Mixing Palettes",
+        "description": "Professional stainless steel makeup mixing palettes from Korea for precise color blending and application",
+        "brand": {
+            "@type": "Brand",
+            "name": "Your Palette"
+        },
+        "offers": {
+            "@type": "AggregateOffer",
+            "lowPrice": "12.50",
+            "highPrice": "24.99",
+            "priceCurrency": "AUD",
+            "availability": "https://schema.org/InStock",
+            "offerCount": "4"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "850"
+        },
+        "image": "https://yourpalette.com.au/img/makeup-palette.jpg"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://yourpalette.com.au/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Categories",
+                "item": "https://yourpalette.com.au/categories.html"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Palettes",
+                "item": "https://yourpalette.com.au/palettes.html"
+            }
+        ]
+    }
+    </script>
+    
+    <!-- Bootstrap 4.6 CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/utilities.css">
+    <link rel="stylesheet" href="css/navigation.css">
+    <link rel="stylesheet" href="css/buttons.css">
+    <link rel="stylesheet" href="css/cards.css">
+    <link rel="stylesheet" href="css/basket.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/sub-pages.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="sub-page">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-xl navbar-light navbar-custom">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="img/yp-main-logo.png" alt="Your Palette Logo" class="navbar-logo">
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown active">
+                        <a class="nav-link dropdown-toggle" href="categories.html" id="categoriesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Categories
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="categoriesDropdown">
+                            <a class="dropdown-item" href="categories.html">
+                                <i class="fas fa-th-large"></i>All Categories
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="palettes.html">
+                                <i class="fas fa-paint-brush"></i>Palettes
+                            </a>
+                            <a class="dropdown-item" href="spatulas.html">
+                                <i class="fas fa-eye"></i>Spatulas
+                            </a>
+                            <a class="dropdown-item" href="lip-tools.html">
+                                <i class="fas fa-kiss"></i>Lip Tools
+                            </a>
+                            <a class="dropdown-item" href="accessories.html">
+                                <i class="fas fa-gem"></i>Accessories
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#featured">Featured</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-search"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="far fa-user"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="far fa-heart"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#basketModal">
+                            <i class="fas fa-shopping-basket"></i>
+                            <span class="basket-count" id="basketCount">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb Navigation -->
+    <div class="container mt-3">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="categories.html">Categories</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Palettes</li>
+            </ol>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="hero-badge mb-3">
+                        <i class="fas fa-palette mr-2"></i>
+                        Professional Mixing Tools
+                    </div>
+                    <h1 class="display-4 mb-3">
+                        Korean Makeup <span class="highlight">Mixing Palettes</span>
+                    </h1>
+                    <p class="lead mb-4">
+                        Master perfect color blending with authentic Korean stainless steel palettes. Used by professionals worldwide, now 50% less than competitor prices.
+                    </p>
+                    <div class="hero-stats mb-4">
+                        <div class="stat-item d-inline-block mr-4">
+                            <span class="stat-number">850+</span>
+                            <div class="stat-label">Happy Customers</div>
+                        </div>
+                        <div class="stat-item d-inline-block mr-4">
+                            <span class="stat-number">4.9★</span>
+                            <div class="stat-label">Average Rating</div>
+                        </div>
+                        <div class="stat-item d-inline-block">
+                            <span class="stat-number">100%</span>
+                            <div class="stat-label">Authentic Korean</div>
+                        </div>
+                    </div>
+                    <a href="#products" class="cta-primary">
+                        Shop MY Palettes Now <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hero-image-container">
+                        <img src="img/makeup-palette.jpg" alt="Korean makeup mixing palette" class="img-fluid rounded shadow-lg">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Our Palettes Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">Why Australian Makeup Artists Choose Our Palettes</h2>
+                    <p class="text-muted">Discover the difference authentic Korean quality makes</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="text-center">
+                        <div class="feature-icon mb-3">
+                            <i class="fas fa-medal" style="font-size: 3rem; color: var(--tan-primary);"></i>
+                        </div>
+                        <h4>Stainless Steel Quality</h4>
+                        <p>Food-grade stainless steel that won't react with makeup formulas. Easy to clean, hygienic, and built to last decades.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="text-center">
+                        <div class="feature-icon mb-3">
+                            <i class="fas fa-paint-brush" style="font-size: 3rem; color: var(--tan-primary);"></i>
+                        </div>
+                        <h4>Perfect Mixing Surface</h4>
+                        <p>Smooth, non-porous surface allows precise color blending. Large mixing area with ergonomic thumb hole for comfortable grip.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="text-center">
+                        <div class="feature-icon mb-3">
+                            <i class="fas fa-graduation-cap" style="font-size: 3rem; color: var(--tan-primary);"></i>
+                        </div>
+                        <h4>Free Tutorial Access</h4>
+                        <p>Every palette includes access to our exclusive video tutorials. Learn professional mixing techniques from Korean makeup artists.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Our Palette Collection</h2>
+            <div class="row">
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="card product-card h-100">
+                        <div class="product-image" style="background-image: url('img/makeup-palette.jpg');">
+                            <div class="product-badge">Best Seller</div>
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Professional Makeup Mixing Palette</h5>
+                            <p class="card-text">Large stainless steel palette (15cm x 10cm) with thumb hole. Perfect for foundation mixing, custom colors, and professional application.</p>
+                            <ul class="feature-list mb-3">
+                                <li><i class="fas fa-check text-success mr-2"></i>Food-grade stainless steel</li>
+                                <li><i class="fas fa-check text-success mr-2"></i>Large mixing surface</li>
+                                <li><i class="fas fa-check text-success mr-2"></i>Ergonomic thumb hole</li>
+                                <li><i class="fas fa-check text-success mr-2"></i>Easy to sanitize</li>
+                            </ul>
+                            <div class="card-footer-content mt-auto">
+                                <div class="price-section">
+                                    <span class="original-price">$35.00</span>
+                                    <div class="current-price-row">
+                                        <span class="price-tag">$18.99</span>
+                                        <span class="savings-badge">Save $16!</span>
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary-custom btn-block mt-2" onclick="addToBasket('Professional Makeup Mixing Palette', 18.99, 'img/makeup-palette.jpg')">Add To MY Basket</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="card product-card h-100">
+                        <div class="product-image" style="background-image: url('img/mini-palette.jpg');">
+                            <div class="product-badge">Travel Size</div>
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Mini Makeup Mixing Palette</h5>
+                            <p class="card-text">Compact version (8cm x 6cm) perfect for travel or personal use. Same professional quality in a portable size.</p>
+                            <ul class="feature-list mb-3">
+                                <li><i class="fas fa-check text-success mr-2"></i>Compact travel-friendly size</li>
+                                <li><i class="fas fa-check text-success mr-2"></i>Same premium materials</li>
+                                <li><i class="fas fa-check text-success mr-2"></i>Perfect for touch-ups</li>
+                                <li><i class="fas fa-check text-success mr-2"></i>Fits in any makeup bag</li>
+                            </ul>
+                            <div class="card-footer-content mt-auto">
+                                <div class="price-section">
+                                    <span class="original-price">$22.50</span>
+                                    <div class="current-price-row">
+                                        <span class="price-tag">$12.50</span>
+                                        <span class="savings-badge">Save $10!</span>
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary-custom btn-block mt-2" onclick="addToBasket('Mini Makeup Mixing Palette', 12.50, 'img/mini-palette.jpg')">Add To MY Basket</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Use Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">How to Use Your Mixing Palette Like a Pro</h2>
+                    <p class="text-muted">Master these techniques with our free video tutorials</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="step-card text-center">
+                        <div class="step-number">1</div>
+                        <h4>Foundation Matching</h4>
+                        <p>Mix different foundation shades to create your perfect match. No more settling for "close enough" - get exact color precision.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="step-card text-center">
+                        <div class="step-number">2</div>
+                        <h4>Custom Lip Colors</h4>
+                        <p>Blend lipsticks to create unique shades. Mix textures, add gloss, or create the perfect nude for your skin tone.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="step-card text-center">
+                        <div class="step-number">3</div>
+                        <h4>Concealer Blending</h4>
+                        <p>Mix concealers for perfect coverage. Combine correctors, adjust undertones, and create seamless blends.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <p class="mb-3"><strong>Want to learn more techniques?</strong></p>
+                <a href="blog.html" class="btn btn-outline-primary">
+                    <i class="fas fa-play mr-2"></i>Watch Free Tutorials
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">What Australian Makeup Artists Say</h2>
+                    <p class="text-muted">Real reviews from verified customers</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="testimonial-card h-100">
+                        <div class="stars mb-2">★★★★★</div>
+                        <p>"Finally, a palette that doesn't stain or react with my products. The stainless steel is game-changing for hygiene. Worth every penny!"</p>
+                        <div class="testimonial-author">
+                            <strong>Jessica R.</strong><br>
+                            <small>Professional MUA, Sydney</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="testimonial-card h-100">
+                        <div class="stars mb-2">★★★★★</div>
+                        <p>"I was skeptical about the price being so low, but the quality is identical to the $50 palettes I used to buy. Highly recommend!"</p>
+                        <div class="testimonial-author">
+                            <strong>Maria K.</strong><br>
+                            <small>Freelance Artist, Melbourne</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="testimonial-card h-100">
+                        <div class="stars mb-2">★★★★★</div>
+                        <p>"The mini palette is perfect for my kit. Clients always ask where I got it. The tutorials helped me level up my mixing skills too!"</p>
+                        <div class="testimonial-author">
+                            <strong>Sarah L.</strong><br>
+                            <small>Bridal MUA, Brisbane</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-5" id="faq">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">Palette Questions Answered</h2>
+                    <p class="text-muted">Everything you need to know about mixing palettes</p>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion" id="palettesFAQ">
+                        <div class="card">
+                            <div class="card-header" id="faq1">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse1">
+                                        How do I clean my stainless steel palette?
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapse1" class="collapse show" data-parent="#palettesFAQ">
+                                <div class="card-body">
+                                    Simply use makeup remover or rubbing alcohol with a soft cloth. The stainless steel won't stain or retain odors. For deep cleaning, use soap and warm water - it's dishwasher safe too!
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header" id="faq2">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse2">
+                                        Will the palette get stained by dark makeup?
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapse2" class="collapse" data-parent="#palettesFAQ">
+                                <div class="card-body">
+                                    No! That's the beauty of stainless steel - it's completely non-porous. Even the darkest lipsticks or most pigmented foundations wipe clean instantly.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header" id="faq3">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse3">
+                                        Which size should I choose?
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapse3" class="collapse" data-parent="#palettesFAQ">
+                                <div class="card-body">
+                                    Professional palette for studio work or if you mix large quantities. Mini palette for personal use or travel. Many customers buy both - they work perfectly together!
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header" id="faq4">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse4">
+                                        Are these the same quality as expensive brands?
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapse4" class="collapse" data-parent="#palettesFAQ">
+                                <div class="card-body">
+                                    Yes! We source from the same Korean manufacturers. The only difference is we sell direct-to-consumer, cutting out retailer markups. Same premium materials, fair prices.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center mt-4">
+                        <a href="#products" class="btn btn-primary-custom btn-lg">
+                            Get MY Professional Palette <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Categories -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">Complete Your Professional Kit</h2>
+                    <p class="text-muted">Perfect tools to use with your mixing palette</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card category-card text-center h-100">
+                        <div class="card-body">
+                            <div class="category-icon">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <h5 class="card-title">Korean Spatulas</h5>
+                            <p class="card-text">Perfect for mixing and applying foundation from your palette</p>
+                            <a href="spatulas.html" class="btn btn-primary-custom">Shop Spatulas</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="card category-card text-center h-100">
+                        <div class="card-body">
+                            <div class="category-icon">
+                                <i class="fas fa-kiss"></i>
+                            </div>
+                            <h5 class="card-title">Lip Tools</h5>
+                            <p class="card-text">Precision applicators for your custom lip color creations</p>
+                            <a href="lip-tools.html" class="btn btn-primary-custom">Shop Lip Tools</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="card category-card text-center h-100">
+                        <div class="card-body">
+                            <div class="category-icon">
+                                <i class="fas fa-gem"></i>
+                            </div>
+                            <h5 class="card-title">Accessories</h5>
+                            <p class="card-text">Mirrors, sponges, and specialty tools for flawless application</p>
+                            <a href="accessories.html" class="btn btn-primary-custom">Shop Accessories</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Basket Modal -->
+    <div class="modal fade" id="basketModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="fas fa-shopping-basket mr-2"></i>Your Basket
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="basketItems">
+                        <div class="text-center py-4">
+                            <i class="fas fa-shopping-basket fa-3x text-muted mb-3"></i>
+                            <p class="text-muted">Your basket is empty</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="w-100">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <strong>Total: $<span id="basketTotal">0.00</span></strong>
+                        </div>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Continue Shopping</button>
+                        <button type="button" class="btn btn-primary-custom" id="checkoutBtn" onclick="proceedToCheckout()">Proceed to Checkout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enhanced Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="img/yp-main-logo.png" alt="Your Palette Logo" class="mb-3" style="height: 50px;">
+                    <p>Discover the art of Korean beauty with our premium makeup tools. Designed for the modern woman who values quality, precision, and the perfect glow.</p>
+                    
+                    <div class="footer-links">
+                        <a href="categories.html" class="footer-link">Shop Tools</a>
+                        <a href="blog.html" class="footer-link">Beauty Tips</a>
+                        <a href="index.html#featured" class="footer-link">New Arrivals</a>
+                        <a href="contact.html" class="footer-link">Contact</a>
+                    </div>
+                </div>
+                <div class="col-md-6 text-md-right">
+                    <h6>Join Our Beauty Community</h6>
+                    <p style="font-size: 0.9rem; margin-bottom: 1rem;">Follow us for daily K-beauty inspiration, tutorials, and exclusive offers</p>
+                    <div class="social-icons">
+                        <i class="fab fa-instagram" title="Follow us on Instagram"></i>
+                        <i class="fab fa-facebook" title="Like us on Facebook"></i>
+                        <i class="fab fa-twitter" title="Follow us on Twitter"></i>
+                        <i class="fab fa-youtube" title="Subscribe to our YouTube"></i>
+                        <i class="fab fa-tiktok" title="Follow us on TikTok"></i>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <small>&copy; 2024 Your Palette. All rights reserved.</small>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Sticky CTA -->
+    <div class="mobile-sticky-cta d-lg-none">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-6">
+                    <button class="btn btn-outline-primary btn-block sticky-cta-btn" data-toggle="modal" data-target="#basketModal">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count-mobile" id="cartCountMobile">0</span>
+                    </button>
+                </div>
+                <div class="col-6">
+                    <a href="#products" class="btn btn-primary-custom btn-block sticky-cta-btn">
+                        <i class="fas fa-palette"></i> Get MY Palette
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Enhanced header background change on scroll
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 50) {
+                $('.navbar-custom').addClass('navbar-scrolled');
+            } else {
+                $('.navbar-custom').removeClass('navbar-scrolled');
+            }
+        });
+
+        // Simple basket functionality
+        let basketItems = JSON.parse(localStorage.getItem('basketItems')) || [];
+        let basketCount = basketItems.reduce((sum, item) => sum + (item.quantity || 1), 0);
+        let basketTotal = basketItems.reduce((total, item) => total + item.price, 0);
+
+        function addToBasket(productName, price, image) {
+            basketItems.push({name: productName, price: price, quantity: 1, image: image});
+            basketCount = basketItems.reduce((sum, item) => sum + (item.quantity || 1), 0);
+            basketTotal += price;
+            
+            localStorage.setItem('basketItems', JSON.stringify(basketItems));
+            updateBasketDisplay();
+            showSuccessAlert();
+        }
+
+        function updateBasketDisplay() {
+            document.getElementById('basketCount').textContent = basketCount;
+            document.getElementById('basketTotal').textContent = basketTotal.toFixed(2);
+            
+            const mobileCartCount = document.getElementById('cartCountMobile');
+            if (mobileCartCount) {
+                mobileCartCount.textContent = basketCount;
+                mobileCartCount.style.display = basketCount > 0 ? 'flex' : 'none';
+            }
+            
+            const basketItemsDiv = document.getElementById('basketItems');
+            if (basketItems.length === 0) {
+                basketItemsDiv.innerHTML = `
+                    <div class="text-center py-4">
+                        <i class="fas fa-shopping-basket fa-3x text-muted mb-3"></i>
+                        <p class="text-muted">Your basket is empty</p>
+                    </div>
+                `;
+            } else {
+                let itemsHTML = '';
+                basketItems.forEach((item, index) => {
+                    itemsHTML += `
+                        <div class="d-flex justify-content-between align-items-center py-2 border-bottom">
+                            <div>
+                                <strong>${item.name}</strong>
+                            </div>
+                            <div>
+                                <span class="price-tag">$${item.price.toFixed(2)}</span>
+                                <button class="btn btn-sm btn-outline-danger ml-2" onclick="removeFromBasket(${index})">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                });
+                basketItemsDiv.innerHTML = itemsHTML;
+            }
+        }
+
+        function removeFromBasket(index) {
+            basketTotal -= basketItems[index].price;
+            basketItems.splice(index, 1);
+            basketCount = basketItems.reduce((sum, item) => sum + (item.quantity || 1), 0);
+            localStorage.setItem('basketItems', JSON.stringify(basketItems));
+            updateBasketDisplay();
+        }
+
+        function showSuccessAlert() {
+            // Create a temporary success message
+            const alert = $('<div class="alert alert-success alert-dismissible fade show position-fixed" style="top: 20px; right: 20px; z-index: 9999;"><i class="fas fa-check-circle mr-2"></i>Product added to basket! <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button></div>');
+            $('body').append(alert);
+            setTimeout(() => alert.alert('close'), 3000);
+        }
+
+        function proceedToCheckout() {
+            const basketItems = JSON.parse(localStorage.getItem('basketItems')) || [];
+            
+            if (basketItems.length === 0) {
+                alert('Your basket is empty. Please add items before checkout.');
+                return;
+            }
+            
+            const cartItems = basketItems.map(item => ({
+                name: item.name,
+                price: item.price,
+                quantity: item.quantity,
+                image: item.image
+            }));
+            
+            localStorage.setItem('cart', JSON.stringify(cartItems));
+            $('#basketModal').modal('hide');
+            window.location.href = 'checkout.html';
+        }
+
+        // Initialize basket display on page load
+        updateBasketDisplay();
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

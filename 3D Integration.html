@@ -399,10 +399,10 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light navbar-custom fixed-top">
+    <nav class="navbar navbar-expand-xl navbar-light navbar-custom fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#home">
-                <i class="fas fa-palette"></i> Your Palette
+            <a class="navbar-brand" href="index.html">
+                <img src="img/yp-main-logo.png" alt="Your Palette Logo" class="navbar-logo">
             </a>
             
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
@@ -410,18 +410,61 @@
             </button>
             
             <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="categories.html" id="categoriesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Categories
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="categoriesDropdown">
+                            <a class="dropdown-item" href="categories.html">
+                                <i class="fas fa-th-large"></i>All Categories
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="palettes.html">
+                                <i class="fas fa-paint-brush"></i>Palettes
+                            </a>
+                            <a class="dropdown-item" href="spatulas.html">
+                                <i class="fas fa-eye"></i>Spatulas
+                            </a>
+                            <a class="dropdown-item" href="lip-tools.html">
+                                <i class="fas fa-kiss"></i>Lip Tools
+                            </a>
+                            <a class="dropdown-item" href="accessories.html">
+                                <i class="fas fa-gem"></i>Accessories
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#featured">Featured</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#home">Home</a>
+                        <a class="nav-link" href="#"><i class="fas fa-search"></i></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#products">Products</a>
+                        <a class="nav-link" href="#"><i class="far fa-user"></i></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
+                        <a class="nav-link" href="#"><i class="far fa-heart"></i></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#basketModal">
+                            <i class="fas fa-shopping-basket"></i>
+                            <span class="basket-count" id="basketCount">0</span>
+                        </a>
                     </li>
                 </ul>
             </div>

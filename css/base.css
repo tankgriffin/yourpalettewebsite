@@ -1,29 +1,32 @@
 /* Base styles and typography - Branded Glass Aesthetic */
 
-/* Remove section dividers - seamless color transitions */
+/* Seamless Section System - No borders or gaps */
 section {
     border: none !important;
     margin: 0 !important;
+    position: relative;
 }
 
-/* Ensure sections connect seamlessly */
-.py-5 {
-    padding-top: 3rem !important;
-    padding-bottom: 3rem !important;
-}
+/* Enhanced Body Background - Foundation Gradient */
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
-    background: linear-gradient(135deg, 
-        var(--cream) 0%, 
-        #f8f5f0 30%, 
-        #f0ead8 60%, 
-        #e8dcc6 100%);
+    background: linear-gradient(180deg, 
+        #f5f1e8 0%,      /* Cream start */
+        #f0ead8 15%,     /* Light cream */
+        #ede5d3 30%,     /* Soft beige */
+        #e8ddc7 45%,     /* Warm beige */
+        #e3d5bb 60%,     /* Medium beige */
+        #ddd0b0 75%,     /* Rich beige */
+        #d8caa5 90%,     /* Deep beige */
+        #d4c49a 100%     /* Final warm tone */
+    );
     background-attachment: fixed;
     color: var(--charcoal);
     min-height: 100vh;
     position: relative;
 }
 
+/* Subtle texture overlay for depth */
 body::before {
     content: '';
     position: fixed;
@@ -32,29 +35,60 @@ body::before {
     right: 0;
     bottom: 0;
     background: 
-        radial-gradient(circle at 20% 20%, rgba(198, 156, 109, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(232, 220, 198, 0.2) 0%, transparent 50%),
-        radial-gradient(circle at 40% 80%, rgba(166, 124, 82, 0.1) 0%, transparent 50%);
+        radial-gradient(circle at 15% 15%, rgba(198, 156, 109, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 85% 25%, rgba(232, 220, 198, 0.12) 0%, transparent 45%),
+        radial-gradient(circle at 30% 70%, rgba(166, 124, 82, 0.06) 0%, transparent 35%),
+        radial-gradient(circle at 70% 85%, rgba(198, 156, 109, 0.10) 0%, transparent 50%);
     z-index: -1;
     pointer-events: none;
 }
 
-/* Global section spacing improvements with glass backdrop */
+/* Seamless Section Backgrounds - Progressive Gradient System */
 section {
     position: relative;
+    transition: all 0.8s ease;
 }
 
-section:not(:first-of-type) {
-    margin-top: 2rem;
+/* Default section - transparent to show body gradient */
+section:not(.bg-light):not(.hero-section):not(#faq) {
+    background: transparent !important;
 }
 
-/* Glass section backgrounds */
+/* Light sections - subtle glass overlay */
 section.bg-light {
-    background: rgba(255, 255, 255, 0.25) !important;
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-top: 1px solid rgba(255, 255, 255, 0.3);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    background: linear-gradient(180deg,
+        rgba(255, 255, 255, 0.15) 0%,
+        rgba(255, 255, 255, 0.25) 50%,
+        rgba(255, 255, 255, 0.20) 100%
+    ) !important;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+}
+
+/* Remove all section margins and add seamless padding */
+.py-5 {
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
+}
+
+/* Smooth section transitions */
+section.bg-light + section:not(.bg-light) {
+    background: linear-gradient(180deg,
+        rgba(255, 255, 255, 0.20) 0%,
+        rgba(255, 255, 255, 0.10) 25%,
+        rgba(255, 255, 255, 0.05) 50%,
+        transparent 100%
+    ) !important;
+    padding-top: 5rem !important;
+}
+
+section:not(.bg-light) + section.bg-light {
+    background: linear-gradient(180deg,
+        rgba(255, 255, 255, 0.05) 0%,
+        rgba(255, 255, 255, 0.15) 50%,
+        rgba(255, 255, 255, 0.25) 100%
+    ) !important;
+    padding-top: 5rem !important;
 }
 
 /* Improved spacing for main content sections */

@@ -70,13 +70,33 @@
     overflow: visible;
 }
 
-/* Navbar specific basket count positioning */
+/* Navbar specific basket count positioning - improved spacing */
 .navbar-nav .basket-count {
-    top: -8px;
-    right: -8px;
+    top: -10px;
+    right: -10px;
+    width: 24px;
+    height: 24px;
+    font-size: 0.75rem;
+    border: 2px solid white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Ensure basket link has enough space for notification */
+.navbar-nav .nav-item:last-child .nav-link {
+    padding-right: 1.5rem !important;
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+    margin-right: 0.5rem;
+}
+
+/* Mobile cart count styling */
+.cart-count-mobile {
+    top: -10px;
+    right: -10px;
     width: 22px;
     height: 22px;
-    font-size: 0.75rem;
+    border: 2px solid white;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
 /* Glass Modal Styling */

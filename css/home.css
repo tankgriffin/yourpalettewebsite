@@ -1,18 +1,20 @@
 /* Homepage specific styles */
 
-/* Modern Hero Section with Beige Matte Gradient */
+/* Modern Hero Section - Seamless with body gradient */
 .hero-section {
     min-height: 100vh;
     position: relative;
     display: flex;
     align-items: center;
     padding: 100px 0 0 0;
-    background: linear-gradient(135deg, 
-        #f5f1e8 0%, 
-        #ede5d3 25%, 
-        #e8ddc7 50%, 
-        #e3d5bb 75%, 
-        #ddd0b0 100%);
+    background: linear-gradient(180deg, 
+        rgba(245, 241, 232, 0.95) 0%,     /* Slight overlay on body gradient */
+        rgba(240, 234, 216, 0.85) 20%,   /* Gradually more transparent */
+        rgba(237, 229, 211, 0.75) 40%,   /* Blend with base */
+        rgba(232, 221, 199, 0.65) 60%,   /* Continue blending */
+        rgba(227, 213, 187, 0.55) 80%,   /* Almost transparent */
+        transparent 100%                  /* Full transparency to body */
+    );
     overflow: hidden;
 }
 
@@ -142,14 +144,17 @@
     text-align: center;
 }
 
-/* FAQ Section Styling */
+/* FAQ Section Styling - Seamless transition */
 #faq {
-    background: linear-gradient(135deg, 
-        #f8f6f0 0%, 
-        #f2efe6 25%, 
-        #ede9dd 50%, 
-        #e8e3d4 75%, 
-        #e3ddcb 100%);
+    background: linear-gradient(180deg,
+        rgba(248, 246, 240, 0.30) 0%,    /* Light overlay start */
+        rgba(242, 239, 230, 0.40) 25%,   /* Gradually more opaque */
+        rgba(237, 233, 221, 0.45) 50%,   /* Mid-point opacity */
+        rgba(232, 227, 212, 0.40) 75%,   /* Fade back */
+        rgba(227, 221, 203, 0.25) 100%   /* Gentle fade to body */
+    ) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 .accordion .card {
