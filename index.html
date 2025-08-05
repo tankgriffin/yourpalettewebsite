@@ -786,18 +786,34 @@
             
             console.log('Renderer initialized with size:', containerWidth, 'x', containerHeight);
 
-            // Lighting
-            const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+            // Enhanced lighting for mirror reflections
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
             scene.add(ambientLight);
 
-            const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
-            directionalLight.position.set(10, 10, 5);
+            // Main directional light with warm tone
+            const directionalLight = new THREE.DirectionalLight(0xffeaa7, 1.2);
+            directionalLight.position.set(8, 12, 6);
             directionalLight.castShadow = true;
+            directionalLight.shadow.mapSize.width = 2048;
+            directionalLight.shadow.mapSize.height = 2048;
+            directionalLight.shadow.camera.near = 0.5;
+            directionalLight.shadow.camera.far = 50;
             scene.add(directionalLight);
 
-            const fillLight = new THREE.DirectionalLight(0xffffff, 0.3);
-            fillLight.position.set(-5, 3, -5);
+            // Fill light from opposite side
+            const fillLight = new THREE.DirectionalLight(0x74b9ff, 0.6);
+            fillLight.position.set(-8, 8, -6);
             scene.add(fillLight);
+
+            // Rim light for edge definition
+            const rimLight = new THREE.DirectionalLight(0xfdcb6e, 0.8);
+            rimLight.position.set(0, -5, 10);
+            scene.add(rimLight);
+
+            // Point light for additional sparkle
+            const pointLight = new THREE.PointLight(0xffffff, 0.5, 100);
+            pointLight.position.set(5, 8, 3);
+            scene.add(pointLight);
 
             // Load custom GLB palette model
             loadGLBPalette();
@@ -883,39 +899,79 @@
         }
         
         function createFallbackPalette() {
-            console.log('Creating fallback palette...');
+            console.log('Creating realistic makeup mixing palette...');
             
-            // Fallback palette in case GLB doesn't load
             const paletteGroup = new THREE.Group();
-            
-            // Simple box geometry as fallback - make it more visible
-            const geometry = new THREE.BoxGeometry(2, 0.3, 1.5);
-            const material = new THREE.MeshStandardMaterial({
-                color: 0xFF6B6B, // Bright red for visibility
-                metalness: 0.5,
-                roughness: 0.2
+
+            // Create simple rectangular palette shape like the reference image
+            const shape = new THREE.Shape();
+            const width = 3;
+            const height = 2;
+            const radius = 0.2; // Much smaller radius for subtle rounding
+
+            // Draw rectangle with minimal rounding
+            shape.moveTo(-width + radius, -height);
+            shape.lineTo(width - radius, -height);
+            shape.quadraticCurveTo(width, -height, width, -height + radius);
+            shape.lineTo(width, height - radius);
+            shape.quadraticCurveTo(width, height, width - radius, height);
+            shape.lineTo(-width + radius, height);
+            shape.quadraticCurveTo(-width, height, -width, height - radius);
+            shape.lineTo(-width, -height + radius);
+            shape.quadraticCurveTo(-width, -height, -width + radius, -height);
+
+            // Large thumb hole in upper left area (like reference image)
+            const thumbHole = new THREE.Path();
+            thumbHole.absarc(-1.5, 0.8, 0.4, 0, Math.PI * 2, false); // Larger hole, positioned like reference
+            shape.holes.push(thumbHole);
+
+            // Simpler extrude settings for clean appearance
+            const extrudeSettings = {
+                depth: 0.08, // Thinner like a real palette
+                bevelEnabled: true,
+                bevelSegments: 4,
+                steps: 1,
+                bevelSize: 0.01,
+                bevelThickness: 0.005
+            };
+
+            const paletteGeometry = new THREE.ExtrudeGeometry(shape, extrudeSettings);
+
+            // Clean stainless steel material like the reference image
+            const paletteMaterial = new THREE.MeshStandardMaterial({
+                color: 0xE5E5E5, // Clean stainless steel color
+                metalness: 0.8,  // High metalness for reflectivity
+                roughness: 0.15, // Slight roughness for realistic stainless steel
+                side: THREE.DoubleSide
             });
-            
-            const paletteBody = new THREE.Mesh(geometry, material);
+
+            const paletteBody = new THREE.Mesh(paletteGeometry, paletteMaterial);
             paletteBody.castShadow = true;
             paletteBody.receiveShadow = true;
             paletteGroup.add(paletteBody);
+
+            // Black O-ring around thumb hole (like reference image)
+            const oringGeometry = new THREE.TorusGeometry(0.42, 0.03, 12, 20); // Match hole size
+            const oringMaterial = new THREE.MeshStandardMaterial({
+                color: 0x2a2a2a, // Dark charcoal black
+                metalness: 0.1,
+                roughness: 0.9
+            });
             
-            // Add a small indicator cube
-            const indicatorGeometry = new THREE.BoxGeometry(0.2, 0.2, 0.2);
-            const indicatorMaterial = new THREE.MeshBasicMaterial({ color: 0x00FF00 });
-            const indicator = new THREE.Mesh(indicatorGeometry, indicatorMaterial);
-            indicator.position.set(0, 0.5, 0);
-            paletteGroup.add(indicator);
+            const oring = new THREE.Mesh(oringGeometry, oringMaterial);
+            oring.position.set(-1.5, 0.8, 0.05); // Position around the thumb hole, slightly raised
+            oring.rotation.x = Math.PI / 2; // Align with palette surface
+            paletteGroup.add(oring);
             
-            // Position to sit on cylinder surface
+            // Position palette horizontally (flat like reference image)
             paletteGroup.position.set(0, 0.8, 0);
-            paletteGroup.rotation.set(-Math.PI / 12, 0, 0);
+            paletteGroup.rotation.set(0, 0, 0); // Flat horizontal orientation
+            paletteGroup.scale.set(0.7, 0.7, 0.7);
             
             palette = paletteGroup;
             scene.add(palette);
             
-            console.log('Fallback palette created and added to scene');
+            console.log('Realistic makeup palette created and added to scene');
         }
 
         let animationStarted = false;
@@ -928,9 +984,9 @@
                 animationStarted = true;
             }
 
-            // Rotate palette
+            // Rotate palette like a turntable (around Y-axis) 
             if (isRotating && palette) {
-                palette.rotation.y += 0.008;
+                palette.rotation.y += 0.012; // Smooth turntable rotation to show all angles
             }
 
             // Subtle floating while maintaining position on cylinder
